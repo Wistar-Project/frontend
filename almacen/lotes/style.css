@@ -46,12 +46,16 @@ header.activar{
     border: none;
     box-shadow: 2px 2px 2px black;
 }
+
+main{
+    position: relative;
+}
+
 .crear{
     width: 120px;
     height: 40px;
     position: relative;
     left: 35%;
-
 }
 .boton-asigar{
     position: relative;

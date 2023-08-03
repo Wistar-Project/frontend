@@ -205,12 +205,5 @@ form select{
 }
 
 main{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    align-items: center;
-    flex-wrap: wrap;
     position: relative;
-    font-family: var(--font-texto);
 }
