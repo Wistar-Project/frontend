@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTruck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
+    <script src="../main.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <div class="logo">
+                <img src="../../img/logo.png" alt="logo" class="logo-app">
+                <h1>GoTruck</h1>
+            </div>
+        </a>
+        <div class="menu">
+            <ul class="nav">
+                <li><a href="#"><img src="../../img/espana.png" class="bandera" alt="Español"><a class="bandera-reino-unido" href="#"><img src="../../img/reino-unido.png" class="bandera" alt="Inglés"></a><img src="/.../../img/caret-abajo.png" class="flecha" alt="Abrir menú"></a>
+                <ol>
+                    <li><a href="#"><img src="../../img/reino-unido.png" class="bandera" alt="Inglés"></a></li>
+                </ol>
+            </li>
+            
+            </ul>
+            <a href="/login">
+                <img src="../../img/avatar.png" alt="login" class="avatar-login">
+            </a>
+        </div>    
+    </header>
+    <main>  
+            <button type="button" class="boton" id="boton-crear" onclick="crearLoteYPaquete()">Crear</button>
+     
+        <fieldset class="paquetes">
+            <legend>Paquetes</legend>
+            <p>paquete 1</p> <img src="../img/asignar-icono.png" alt="no se ah podiddo cargar la imagen" onclick="asignarLoteYPaquete()">
+            <p>paquete 2</p>
+            <p>paquete 3</p>
+        </fieldset>
+        <fieldset class="informacion">
+            <legend>Información</legend>
+            <br>
+            <p> Id del paquete:</p>
+            <br>
+            <p> vehiculo asignado :</p>
+            <br>
+            <p>peso (kg):</p>
+            <br>
+            <p>Fecha de modificación :</p>
+            <br>
+            <p>Dirección destino :</p>
+            <br>
+        </fieldset>
+        <fieldset class="container-crear" id="container-crear">
+            <legend>Crear Paquetes</legend>
+            <form action="" method="post" >
+                <center> 
+                     <label for="peso"> Peso(kg) :</label> 
+                      <input type="number" name="peso">
+                </center>
+                <label for="destino">Destino:</label>
+                <textarea name="destino"  cols="30" rows="10" placeholder="ingrese  destino"></textarea>
+                <br>
+                <input type="submit" value="Crear" class="boton crear">
+            </form>
+        </fieldset>
+        <fieldset class="asignar" id="asignar">
+            <form action="" method="post">
+                <input type="submit" value="Asignar" class="boton boton-asignar">
+                <button type="button" class="boton boton-cerrar" onclick="cerrarVentanaAsignar()">Cerrar</button>
+                <fieldset class="vehiculos">
+                    <div class="scroll">
+                        <div class="inputs">
+                    «Hanky Panky» es una canción interpretada por la cantante estadounidense Madonna, incluida en I'm Breathless (1990), una de las tres bandas sonoras creadas para acompañar la película Dick Tracy, dirigida y producida por Warren Beatty y coprotagonizada por la cantante. La canción surgió de una frase utilizada en una de las escenas del filme entre el personaje Breathless Mahoney (Madonna) y Dick Tracy (Beatty). La cantante compuso y produjo el tema junto con su colaborador habitual Patrick Leonard durante las tres semanas que duraron las sesiones de I'm Breathless; el arreglista Jeremy Lubbock, quien participó en la grabación, le añadió un toque de swing de los años 1930 en un estilo similar al del pianista Count Basie.
+
+Con un ritmo rápido y bailable, «Hanky Panky» pertenece a los géneros jazz y swing, aunque también ha sido descrito como un número de electro swing. Madonna canta en un registro más bajo de lo habitual y la canción emplea un estilo cómico y una serie de recursos musicales que se inclinan hacia lo paródico. La letra se considera una oda al sadomasoquismo, en la que la narradora aprueba y suplica unas nalgadas eróticas. Dado que Dick Tracy estaba asociada con Walt Disney Pictures, la artista debió moderar el contenido y omitir algunas referencias más explícitas por exigencia de los censores de la compañía. Por su naturaleza, la letra ha sido objeto de diversos comentarios y análisis por parte de críticos y académicos, aunque Madonna confesó que todo el asunto de las nalgadas debía entenderse como un juego.
+
+Las compañías Sire y Warner Bros. Records publicaron «Hanky Panky» como el segundo y último sencillo del álbum el 28 de junio de 1990 en los Estados Unidos y el 9 de julio de ese año en Australia y Europa. El músico estadounidense Kevin Gilbert estuvo a cargo de las remezclas, caracterizadas por su sonido entrecortado. Tras su lanzamiento en las radios, suscitó fuertes quejas debido a las insinuaciones sexuales en la letra, lo que provocó que algunas emisoras estadounidenses y canadienses se negaran a transmitir la canción. En términos generales, obtuvo reseñas favorables de los críticos musicales, quienes pusieron énfasis en la letra y resaltaron la producción y la voz de la cantante.
+
+Desde el punto de vista comercial, alcanzó el primer puesto en Finlandia y en la lista European Airplay Top 50 y estuvo entre las diez mejores posiciones en Argentina, Australia, Canadá, Irlanda, Italia, Nueva Zelanda y el Reino Unido. En los Estados Unidos, ocupó el décimo lugar en la lista Billboard Hot 100 y fue el vigésimo top diez de Madonna; con ello, logró posicionar
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </fieldset>
+   
+    </main>
+    <footer>
+        <div class="flex-container">
+            <a href="#">Política y privacidad</a>
+            <a href="#">Contacto</a>
+            <div id="logo-nombre">
+                <h3 id="titulo-footer">GoTruck</h3>
+                <img src="../../img/logo.png" alt="logo" class="logo-app" id="logo-footer">
+            </div>
+        </div>
+        <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

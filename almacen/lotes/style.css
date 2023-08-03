@@ -1,0 +1,217 @@
+@import url("../style.css");
+
+:root{
+    --font-titulo: 'Roboto Condensed', sans-serif;
+    --font-texto: 'Raleway', sans-serif;
+    --texto: #fff;
+    --fondo: #2b333b;
+    --boton-principal: #375643;
+    --boton-secundario: #253e41;
+    --acento: #172620
+}
+
+html{
+    animation-name: intro;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+}
+@keyframes intro{
+    0%{
+        scale:1.9;
+    }
+    100%{
+        scale: 1;
+    }
+}
+
+header.activar{
+    opacity: 0.7;
+    z-index: 999;
+    box-shadow: 1px 1px 6px gray;
+    transform: scale(0.8);
+    position: sticky;
+}
+
+.boton{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 120px;
+    height: 40px;
+    color: var(--texto);
+    background-color: var(--boton-principal);
+    border-radius: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+}
+.crear{
+    width: 120px;
+    height: 40px;
+    position: relative;
+    left: 35%;
+
+}
+.boton-asigar{
+    position: relative;
+    width: 120px;
+    height: 40px;
+    left: 50%;
+}
+.boton-cerrar{
+    position: relative;
+    width: 120px;
+    height: 40px;
+    left: 20px;
+    margin-bottom: 85px;
+}
+.boton:hover{
+    transition: all .2s ease;
+    transform: scale(1.03);
+    box-shadow: 1px 1px 1px black;
+    background-color: #4c6c58;
+}
+.boton:focus{
+   animation-name: boton;
+   animation-duration: .2s;
+   animation-fill-mode: forwards;
+}
+@keyframes boton{
+    0%{
+        scale: 1;
+        box-shadow: 3px 3px 3px black;
+    }
+    50%{
+        scale: 0.9;
+        box-shadow: 3px 3px 3px black;
+    }
+    100%{
+        scale: 1;
+        box-shadow: 3px 3px 3px black;
+    }
+}
+.lotes{
+    min-height: 500px ;
+    width: 50%;
+    padding: 15px;
+    font-size: 25px; 
+}
+.informacion{
+    min-height: 500px ;
+    width: 35%;
+    padding: 15px;
+    font-size: 25px; 
+}
+fieldset img{
+    width: 70px;
+    height: 70px;
+    position: relative;
+    left: 80%;
+    top: -40px;
+    cursor: pointer;
+}
+fieldset > img:hover{
+    transition: all .1s ease;
+    scale: 1.03;
+    box-shadow: .8px .8px 2px black;
+}
+fieldset{
+    position: relative;
+    border:none;
+    top: 50px;
+    box-shadow: 1px 1px 7px black;
+    margin: 10px;
+}
+.container-crear{
+    font-size: 20px;
+    display: none;
+    width: 350px;
+    height: 450px;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    background-color: var(--boton-secundario);
+    opacity: 0.98;
+}
+.container-crear.mostrar{
+    animation-name: entrada ;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@keyframes entrada {
+    0%{
+        scale:0;
+    }
+    100%{
+        scale:1;
+    }
+}
+.paquetes{
+    width: 30%;
+    height: 200px;
+    left: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    top: 10px;
+}
+.scroll{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.asignar{
+    font-size: 20px;
+    display: none;
+    width: 350px;
+    height: 450px;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    background-color: var(--boton-secundario);
+}
+.asignar.ver{
+    animation-name: ver;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@keyframes ver {
+    0%{
+        opacity: 0.1;
+    }
+    100%{
+        opacity: 0.95;
+    }
+}
+.scrolldos{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll; 
+}
+.vehiculos{
+    width: 70%;
+    position: relative;
+    height: 300px;
+    left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    top:0;
+}
+form select{
+    background-color: var(--fondo);
+    width: 100px;
+}

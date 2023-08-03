@@ -1,0 +1,55 @@
+@import url("../structure.css");
+
+:root{
+    --font-titulo: 'Roboto Condensed', sans-serif;
+    --font-texto: 'Raleway', sans-serif;
+    --texto: #fff;
+    --fondo: #2b333b;
+    --boton-principal: #375643;
+    --boton-secundario: #253e41;
+    --acento: #172620
+}
+
+#titulo{
+    text-align: center;
+    font-size: 60px;
+    font-family: var(--font-titulo);
+    padding-top: 20px;
+}
+
+fieldset{
+    width: 50%;
+    height: 400px;
+    border-radius: 10px;
+    border: 2px dashed #fff;
+    background-color: var(--acento);
+    font-family: var(--font-texto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+fieldset div{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    color: #000;
+    font-family: var(--font-texto);
+    font-size: 20px;
+}
+
+button{
+    padding: 10px;
+    font-size: 20px;
+    font-family: var(--font-titulo);
+    background-color: var(--boton-principal);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    outline: none;
+    padding: .5rem 1.5rem;
+}
