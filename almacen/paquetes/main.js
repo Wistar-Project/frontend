@@ -1,3 +1,9 @@
+const nav = document.querySelector('header')
+
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('activar', this.window.scrollY > 0)
+})
+
 function crearLoteYPaquete(){
     const form=document.getElementById('container-crear');
     form.classList.toggle('mostrar');
