@@ -1,5 +1,5 @@
 import { setCookie } from '../utils/cookieHelper.js'
-import { client } from '../utils/consts.js'
+import { client, serverUrls } from '../utils/consts.js'
 
 const loginBtn = document.getElementById('iniciar-sesion-btn')
 loginBtn.addEventListener('click', async () => {
@@ -12,7 +12,7 @@ loginBtn.addEventListener('click', async () => {
 })
 
 async function sendLoginRequest(email, pass){
-    return await fetch("http://localhost:8000/oauth/token", {
+    return await fetch(`${serverUrls.oauth}/oauth/token`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
