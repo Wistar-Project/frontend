@@ -73,7 +73,10 @@ h1{
 .avatar-login{
     width: 30px;
     height: 30px;
+    border-radius: 50%;
 }
+
+
 .bandera{
     width: 25px;
     height: 25px;
@@ -98,6 +101,9 @@ ul,ol{
     align-items: center;
     gap: 5px;
 }
+.menu a{
+    display: flex;
+}
 .nav li ol{
     display: none;
 }
@@ -113,7 +119,7 @@ ul,ol{
 }
 
 .li:hover > .bandera-reino-unido{
-    display: block;
+    display: flex;
 }
 
 

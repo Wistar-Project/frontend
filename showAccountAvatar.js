@@ -24,7 +24,12 @@ async function updateAvatar(){
 
     async function changeAvatar(name){ 
         const avatar = document.getElementById('account-avatar')
-        const urlParams = new URLSearchParams({ name })
+        const urlParams = new URLSearchParams({ 
+            name, 
+            bold: true,
+            color: "fff",
+            background: "000"
+        })
         avatar.src = `https://ui-avatars.com/api?${urlParams}`
     }
 }
