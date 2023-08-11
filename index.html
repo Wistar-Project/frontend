@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/png">
     <script src="headerAnimation.js" defer></script>
     <script src="showAccountAvatar.js" defer type="module"></script>
+    <script src="authChecker.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -32,13 +33,20 @@
                     </ol>
                 </li>
             </ul>
-            <a href="/login">
+            <a href="/login" id="avatar-a">
                 <img src="img/avatar.png" alt="login" class="avatar-login" id="account-avatar">
             </a>
-        </div>    
+        </div>  
+        <div id="opciones-usuario">
+            <div id="boton-cerrar-sesion">
+                <img src="/img/cerrar-sesion.png" alt="Salir">
+                <p>Cerrar sesión</p>
+            </div>
+        </div>  
     </header>
     <h3 id="aplicaciones-titulo">Aplicaciones</h3>
     <main>
+
         <div class="container" id="seguimiento-container">
             <h3>Seguimiento</h3>
             <img src="img/maps 1.png" alt="Hubo un error al cargar la imagen.">

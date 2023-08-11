@@ -29,3 +29,6 @@ export function getCookie(cname) {
     return ""
 }
 
+export function deleteCookie(name){
+  setCookie(name, "", "Thu, 01 Jan 1970 00:00:00 UTC")
+}
