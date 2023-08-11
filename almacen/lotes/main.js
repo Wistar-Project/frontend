@@ -78,7 +78,7 @@ async function obtenerYMostrarLotes(){
             button.textContent = lote.id
             button.className = "loteBoton"
             button.addEventListener('click', () => {
-                mostrarInformacionDeLote(lote)
+                mostrarInformacionDeLote(lote.id)
             })
             lotesContainer.appendChild(button)
             lotesContainer.appendChild(button).classList.toggle('lotes-creados')
@@ -95,20 +95,33 @@ obtenerYMostrarLotes();
 
 const loteInfo = document.getElementById("informacion")
 
-function mostrarInformacionDeLote(lote){
+async function mostrarInformacionDeLote(idLote){
+    const { 
+        pesoEnKg, 
+        camionAsignado, 
+        fechaModificacion, 
+        direccionDestino, 
+        cantidadPaquetes 
+    } = await obtenerInformacionDeLote(idLote)
+
     loteInfo.innerHTML = `
         <legend>Información</legend>
         <br>
-        <p> Id del lote: ${lote.id}</p>
+        <p> Id del lote: ${idLote}</p>
         <br>
-        <p> Peso (kg):</p>
+        <p> Peso (kg): ${pesoEnKg}</p>
         <br>
-        <p>Vehiculo asignado:</p>
+        <p>Vehiculo asignado: ${camionAsignado}</p>
         <br>
-        <p>Fecha de modificación:</p>
+        <p>Fecha de modificación: ${fechaModificacion}</p>
         <br>
-        <p>Dirección destino: ${lote.destino}</p>
+        <p>Dirección destino: ${direccionDestino}</p>
         <br>
-        <p>Cantidad de paquetes:</p>
+        <p>Cantidad de paquetes: ${cantidadPaquetes}</p>
     `
+
+    async function obtenerInformacionDeLote(idLote){
+        const response = await fetch(`http://localhost:8000/api/v1/lotes/${idLote}`)
+        return await response.json()
+    }
 }
