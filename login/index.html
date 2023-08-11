@@ -51,17 +51,17 @@
                     <p>Inicie sesión para acceder al sitio.</p>
                 </div>
             </div>
-            <div id="input-container">
+            <form id="input-container">
                 <div>
                     <label for="email">Email:</label>
-                    <input type="text" placeholder="usuario@gotruck.com" id="email">
+                    <input type="text" placeholder="usuario@gotruck.com" name="username" id="email">
                 </div>
                 <div>
                     <label for="contra">Contraseña:</label>
-                    <input type="password" placeholder="1234" id="contra">
+                    <input type="password" placeholder="1234" name="password" id="contra">
                 </div>
-                <button id="iniciar-sesion-btn">Iniciar sesión</button>
-            </div>
+                <button id="iniciar-sesion-btn" type="submit">Iniciar sesión</button>
+            </form>
         </fieldset>
     </main>
     <footer>

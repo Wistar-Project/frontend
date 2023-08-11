@@ -1,26 +1,24 @@
 import { setCookie } from '../utils/cookieHelper.js'
 import { client, serverUrls } from '../utils/consts.js'
 
-const loginBtn = document.getElementById('iniciar-sesion-btn')
-loginBtn.addEventListener('click', async () => {
-    const emailInput = document.querySelector("#email")
-    const passInput = document.querySelector("#contra")
-    const response = await sendLoginRequest(emailInput.value, passInput.value)
+document.querySelector('form').addEventListener('submit', async e => {
+    e.preventDefault()
+    const data = Object.fromEntries(new FormData(e.target))
+    const response = await sendLoginRequest(data)
     if(!response.ok) return showErrorMessage()
     const { access_token, expires_in } = await response.json()
     setCookie("token", access_token, expires_in)
     window.location.href = '/'
 })
 
-async function sendLoginRequest(email, pass){
+async function sendLoginRequest(data){
     return await fetch(`${serverUrls.oauth}/oauth/token`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            username: email,
-            password: pass,
+            ...data,
             grant_type: "password",
             client_id: client.id,
             client_secret: client.secret
@@ -31,5 +29,4 @@ async function sendLoginRequest(email, pass){
 function showErrorMessage(){
     const errorContainer = document.getElementById('error-container')
     errorContainer.className = "mostrar"
-
 }
