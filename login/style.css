@@ -131,3 +131,7 @@ button:hover{
     animation-name: mostrarMensajeError;
     animation-duration: 1s;
 }
+
+#error-container #close-button{
+
+}
