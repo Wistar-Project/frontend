@@ -74,18 +74,41 @@ async function obtenerYMostrarLotes(){
 
     function mostrarLotes(lotes){
         lotes.map(lote => {
-            const p = document.createElement('p')
-            p.textContent = lote.id
-            lotesContainer.appendChild(p)
-            lotesContainer.appendChild(p).classList.toggle('lotes-creados')
-            lotesContainer.appendChild(p).style.cursor = "pointer"
-            lotesContainer.appendChild(p).style.margin = "20px"
-            lotesContainer.appendChild(p).style.width1 = "100%"
+            const button = document.createElement('button')
+            button.textContent = lote.id
+            button.className = "loteBoton"
+            button.addEventListener('click', () => {
+                mostrarInformacionDeLote(lote)
+            })
+            lotesContainer.appendChild(button)
+            lotesContainer.appendChild(button).classList.toggle('lotes-creados')
+            lotesContainer.appendChild(button).style.cursor = "pointer"
+            lotesContainer.appendChild(button).style.margin = "20px"
+            lotesContainer.appendChild(button).style.width1 = "100%"
             
         })
     }
- 
 }
 
 
 obtenerYMostrarLotes();
+
+const loteInfo = document.getElementById("informacion")
+
+function mostrarInformacionDeLote(lote){
+    loteInfo.innerHTML = `
+        <legend>Información</legend>
+        <br>
+        <p> Id del lote: ${lote.id}</p>
+        <br>
+        <p> Peso (kg):</p>
+        <br>
+        <p>Vehiculo asignado:</p>
+        <br>
+        <p>Fecha de modificación:</p>
+        <br>
+        <p>Dirección destino: ${lote.destino}</p>
+        <br>
+        <p>Cantidad de paquetes:</p>
+    `
+}
