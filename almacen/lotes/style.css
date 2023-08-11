@@ -26,7 +26,7 @@ html{
 
 header.activar{
     opacity: 0.7;
-    z-index: 999;
+    z-index: 950;
     box-shadow: 1px 1px 6px gray;
     transform: scale(0.8);
     position: sticky;
@@ -46,7 +46,9 @@ header.activar{
     border: none;
     box-shadow: 2px 2px 2px black;
 }
-
+#boton-crear{
+ right: 5px;
+}
 main{
     position: relative;
 }
@@ -55,7 +57,7 @@ main{
     width: 120px;
     height: 40px;
     position: relative;
-    left: 35%;
+    left: 20%;
 }
 .boton-asigar{
     position: relative;
@@ -96,10 +98,11 @@ main{
     }
 }
 .lotes{
-    min-height: 500px ;
+    height: 500px ;
     width: 50%;
     padding: 15px;
     font-size: 25px; 
+    text-align: center;
 }
 .informacion{
     min-height: 500px ;
@@ -218,4 +221,64 @@ fieldset{
 form select{
     background-color: var(--fondo);
     width: 100px;
+}
+.scrolltres{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.lotes-creados{
+    font-size: 40px;
+    font-family: var(--font-texto);
+}
+.alerta-creada{
+    font-size: 35px;
+    font-family: var(--font-texto);
+    background-color: green;
+    width: 100%;
+    position: sticky;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    animation-name: passed;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+@keyframes passed {
+    0%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.alerta-error{
+    font-size: 35px;
+    font-family: var(--font-texto);
+    background-color: red;
+    width: 100%;
+    position: sticky;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    animation-name: error;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+@keyframes error{
+    0%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
 }

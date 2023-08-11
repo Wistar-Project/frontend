@@ -95,10 +95,11 @@ header.activar{
      }
  }
 .paquetes{
-    min-height: 500px ;
+    height: 500px ;
     width: 50%;
     padding: 15px;
     font-size: 25px; 
+    text-align: center;
 }
 .informacion{
     min-height: 500px ;
@@ -130,7 +131,7 @@ fieldset{
     font-size: 20px;
     display: none;
     width: 350px;
-    height: 450px;
+    height: 350px;
     position: absolute;
     top: 15%;
     left: 35%;
@@ -141,10 +142,7 @@ fieldset{
     animation-name: entrada ;
     animation-duration: .6s;
     animation-fill-mode: forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: block;
 }
 @keyframes entrada {
     0%{
@@ -198,12 +196,76 @@ fieldset{
     justify-content: center;
     top: -35px;
 }
-
-form select{
-    background-color: var(--fondo);
-    width: 100px;
+.scrolltres{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll; 
 }
 
+form textarea,input,select{
+    color: black;
+    margin-top: 60px;
+}
+form select{
+    position: relative;
+    width: 50%;
+    left: 15%;
+}
+.paquetes-creados{
+    font-size: 40px;
+    font-family: var(--font-texto);
+}
+.alerta-creada{
+    font-size: 35px;
+    font-family: var(--font-texto);
+    background-color: green;
+    width: 100%;
+    position: sticky;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    animation-name: passed;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+@keyframes passed {
+    0%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.alerta-error{
+    font-size: 35px;
+    font-family: var(--font-texto);
+    background-color: red;
+    width: 100%;
+    position: sticky;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    animation-name: error;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+@keyframes error{
+    0%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 main{
     position: relative;
 }

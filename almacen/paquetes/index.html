@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/img/logo.png" type="image/png">
     <script src="../../headerAnimation.js" defer></script>
-    <script src="../main.js" defer></script>
+    <script src="main.js" defer></script>
     <script src="/showAccountAvatar.js" defer type="module"></script>
 </head>
 <body>
@@ -40,13 +40,13 @@
         </div>    
     </header>
     <main>  
-            <button type="button" class="boton" id="boton-crear" onclick="crearLoteYPaquete()">Crear</button>
+            <button type="button" class="boton" id="boton-crear" onclick="crearPaquete()">Crear</button>
      
-        <fieldset class="paquetes">
+        <fieldset class="paquetes" >
             <legend>Paquetes</legend>
-            <p>paquete 1</p> <img src="../img/asignar-icono.png" alt="no se ah podiddo cargar la imagen" onclick="asignarLoteYPaquete()">
-            <p>paquete 2</p>
-            <p>paquete 3</p>
+            <div class="scrolltres">
+                <div class="mostrar" id="mostrar"></div>
+            </div>
         </fieldset>
         <fieldset class="informacion">
             <legend>Información</legend>
@@ -67,10 +67,12 @@
             <form action="" method="post" >
                 <center> 
                      <label for="peso"> Peso(kg) :</label> 
-                      <input type="number" name="peso">
+                      <input type="number" name="pesoEnKilogramos">
                 </center>
                 <label for="destino">Destino:</label>
-                <textarea name="destino"  cols="30" rows="10" placeholder="ingrese  destino"></textarea>
+                <select name="destino" >
+                    <option value="1">prueba</option>
+                </select>
                 <br>
                 <input type="submit" value="Crear" class="boton crear">
             </form>

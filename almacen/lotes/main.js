@@ -32,8 +32,36 @@ document.querySelector('form')
         },
         body: JSON.stringify(data)
     })
+    .then(function(response){
+        if(response.ok){
+            const divAlerta = document.createElement('div')
+            divAlerta.className = 'alerta-creada'
+            divAlerta.textContent = "Lote creado con exito"
+            document.body.appendChild(divAlerta)
+            divAlerta.style.display =  "block"
+            setTimeout(function(){
+                divAlerta.style.display = "none"
+                document.body.removeChild(divAlerta)
+            }, 3500)
+        } 
+    })
+    .catch(err =>{
+        const divAlerta = document.createElement('div')
+        divAlerta.className = 'alerta-error'
+        divAlerta.textContent = "Fallo al crear el lote"
+        document.body.appendChild(divAlerta)
+        divAlerta.style.display =  "block"
+        setTimeout(function(){
+            divAlerta.style.display = "none"
+            document.body.removeChild(divAlerta)
+        }, 3500)
+        console.log(err)
+    })
+     
+    
 })
-const lotesContainer = document.getElementById('lotes')
+
+const lotesContainer = document.getElementById('mostrar')
 
 async function obtenerYMostrarLotes(){
     const lotes = await obtenerLotes()
@@ -49,7 +77,15 @@ async function obtenerYMostrarLotes(){
             const p = document.createElement('p')
             p.textContent = lote.id
             lotesContainer.appendChild(p)
+            lotesContainer.appendChild(p).classList.toggle('lotes-creados')
+            lotesContainer.appendChild(p).style.cursor = "pointer"
+            lotesContainer.appendChild(p).style.margin = "20px"
+            lotesContainer.appendChild(p).style.width1 = "100%"
+            
         })
     }
+ 
 }
+
+
 obtenerYMostrarLotes();
