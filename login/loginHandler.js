@@ -9,6 +9,7 @@ loginBtn.addEventListener('click', async () => {
     if(!response.ok) return showErrorMessage()
     const { access_token, expires_in } = await response.json()
     setCookie("token", access_token, expires_in)
+    window.location.href = '/'
 })
 
 async function sendLoginRequest(email, pass){
