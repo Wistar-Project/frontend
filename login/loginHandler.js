@@ -26,13 +26,7 @@ async function sendLoginRequest(data){
     })
 }
 
-const errorContainer = document.getElementById('error-container')
-
 function showErrorMessage(){
+    const errorContainer = document.getElementById('error-container')
     errorContainer.className = "mostrar"
 }
-
-const errorMessageCloseButton = document.getElementById('close-button')
-errorMessageCloseButton.addEventListener('click', () => {
-    errorContainer.className = ""
-})
