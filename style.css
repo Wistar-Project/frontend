@@ -119,3 +119,7 @@
     width: 20px;
     filter: invert();
 }
+
+#account-avatar{
+    cursor: pointer;
+}

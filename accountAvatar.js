@@ -35,16 +35,15 @@ async function updateAvatar(){
 }
 
 const opcionesUsuario = document.getElementById('opciones-usuario')
-const avatarLinkContainer = document.getElementById('avatar-a')
-const token = getCookie('token')
-avatarLinkContainer.addEventListener('click', () => {
+const accountAvatar = document.getElementById('account-avatar')
+accountAvatar.addEventListener('click', () => {
     opcionesUsuario.classList.toggle('mostrar')
 })
 
 document.getElementById('boton-cerrar-sesion').addEventListener('click', () => {
     fetch(`${serverUrls.oauth}/api/v1/logout`, {
         headers: {
-            Authorization:  `Bearer ${token}`
+            Authorization:  `Bearer ${getCookie('token')}`
         }
     })
     deleteCookie('token')
