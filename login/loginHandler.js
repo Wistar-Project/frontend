@@ -29,5 +29,7 @@ async function sendLoginRequest(email, pass){
 }
 
 function showErrorMessage(){
-    alert("Ha ocurrido un error al iniciar sesión.")
+    const errorContainer = document.getElementById('error-container')
+    errorContainer.className = "mostrar"
+
 }

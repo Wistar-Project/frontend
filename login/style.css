@@ -101,3 +101,33 @@ button{
 button:hover{
     background-color: #215435;
 }
+
+#error-container{
+    display: none;
+}
+
+#error-container img{
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes mostrarMensajeError{
+    from { right: -1000px; }
+    to { right: 10px; }
+}
+
+#error-container.mostrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-texto);
+    gap: 10px;
+    padding: 10px;
+    position: fixed;
+    border-radius: 10px;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--boton-principal);
+    animation-name: mostrarMensajeError;
+    animation-duration: 1s;
+}
