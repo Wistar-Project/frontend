@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/img/logo.png" type="image/png">
     <script src="../headerAnimation.js" defer></script>
-    <script src="/showAccountAvatar.js" defer type="module"></script>
+    <script src="/accountAvatar.js" defer type="module"></script>
+    <script src="/utils/authChecker.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -34,9 +35,13 @@
                     </ol>
                 </li>
             </ul>
-            <a href="/login">
-                <img src="/img/avatar.png" alt="login" class="avatar-login" id="account-avatar">
-            </a>
+            <img src="/img/avatar.png" alt="login" class="avatar-login" id="account-avatar">
+            <div id="opciones-usuario">
+                <div id="boton-cerrar-sesion">
+                    <img src="/img/cerrar-sesion.png" alt="Salir">
+                    <p>Cerrar sesión</p>
+                </div>
+            </div>  
         </div>    
     </header>
     <main>
