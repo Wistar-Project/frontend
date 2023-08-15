@@ -1,16 +1,10 @@
-const nav = document.querySelector('header')
+import  {serverUrls}from '../../utils/consts.js'
 
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('activar', this.window.scrollY > 0)
-})
-
-function crearLoteYPaquete(){
+document.getElementById('boton-crear').addEventListener('click', function(){
     const form=document.getElementById('container-crear');
     form.classList.toggle('mostrar');
-    
-}
-
-function asignarLoteYPaquete(){
+})
+ function asignarLoteYPaquete(){
     const asignar=document.getElementById('asignar');
     asignar.classList.toggle('ver');
 }
@@ -25,7 +19,7 @@ document.querySelector('form')
         new FormData(e.target)
     )
     console.log(JSON.stringify(data))
-    fetch("http://localhost:8000/api/v1/lotes", {
+    fetch(`${serverUrls.almacenes}/api/v1/lotes`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"  
@@ -68,7 +62,7 @@ async function obtenerYMostrarLotes(){
     mostrarLotes(lotes)
 
     async function obtenerLotes(){
-        const response = await fetch('http://localhost:8000/api/v1/lotes')
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes`)
         return await response.json()
     }
 
@@ -77,7 +71,7 @@ async function obtenerYMostrarLotes(){
             const button = document.createElement('button')
             button.textContent = lote.id
             button.className = "loteBoton"
-            button.addEventListener('click', () => {
+            button.addEventListener('click', function() {
                 mostrarInformacionDeLote(lote.id)
             })
             lotesContainer.appendChild(button)
@@ -121,7 +115,7 @@ async function mostrarInformacionDeLote(idLote){
     `
 
     async function obtenerInformacionDeLote(idLote){
-        const response = await fetch(`http://localhost:8000/api/v1/lotes/${idLote}`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes/${idLote}`)
         return await response.json()
     }
 }

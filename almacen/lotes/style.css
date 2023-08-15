@@ -57,7 +57,8 @@ main{
     width: 120px;
     height: 40px;
     position: relative;
-    left: 20%;
+    left: 35%;
+    top: 0;
 }
 .boton-asigar{
     position: relative;
@@ -148,7 +149,6 @@ fieldset{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
 }
 @keyframes entrada {
     0%{
@@ -159,7 +159,7 @@ fieldset{
     }
 }
 .paquetes{
-    width: 30%;
+    width: 70%;
     height: 200px;
     left: 80px;
     display: flex;
@@ -167,6 +167,10 @@ fieldset{
     align-items: center;
     justify-content: center;
     top: 10px;
+    left: 15%;
+}
+#form-crear{
+    width: 100%;
 }
 .scroll{
     width: 100%;
@@ -219,8 +223,14 @@ fieldset{
     top:0;
 }
 form select{
-    background-color: var(--fondo);
+    background-color: var(--boton-principal);
     width: 100px;
+    width: 60%;
+    height: 80px;
+    color: var(--texto);
+    border: 1px white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #253e41;
 }
 .scrolltres{
     width: 100%;

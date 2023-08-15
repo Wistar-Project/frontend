@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/img/logo.png" type="image/png">
-    <script src="main.js" defer></script>
+    <script src="main.js" type="module" defer></script>
     <script src="/accountAvatar.js" defer type="module"></script>
+    <script src="../../headerAnimation.js" type="module" defer></script>
 </head>
 <body>
     <header>
@@ -44,7 +45,7 @@
         </div>    
     </header>
     <main>  
-            <button type="button" class="boton" id="boton-crear" onclick="crearLoteYPaquete()">Crear</button>
+            <button type="button" class="boton" id="boton-crear">Crear</button>
      
         <fieldset class="lotes" id="lotes">
             <legend>Lotes</legend>
@@ -75,7 +76,7 @@
                 <center> 
                      <label for="destino"> Destino :</label> 
                         <select name="destino" required>
-                            <option value="2">prueba</option>
+                            <option value="1">prueba</option>
                         </select>
                 </center>
                 <br>

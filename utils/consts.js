@@ -1,9 +1,9 @@
 export const client = {
-    id: "4",
-    secret: "bTGbG1VTHEXr9Oir7eBeL1LbiBmOTfPK3Yjq7meZ"
+    id: "1",
+    secret: "r95z6JlBITrUuQryVkCOJ6aX3aFcsIpNhJqrs2t5"
 }
 
 export const serverUrls = {
-    oauth: "http://localhost:8001",
-    almacenes: "http://localhost:8000",
+    oauth: "http://localhost:8000",
+    almacenes: "http://localhost:8001",
 }

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/img/logo.png" type="image/png">
     <script src="../../headerAnimation.js" defer></script>
-    <script src="main.js" defer></script>
+    <script src="main.js" type="module" defer></script>
     <script src="/accountAvatar.js" defer type="module"></script>
 </head>
 <body>
@@ -45,7 +45,7 @@
         </div>    
     </header>
     <main>  
-            <button type="button" class="boton" id="boton-crear" onclick="crearPaquete()">Crear</button>
+            <button type="button" class="boton" id="boton-crear">Crear</button>
      
         <fieldset class="paquetes" >
             <legend>Paquetes</legend>
@@ -53,7 +53,7 @@
                 <div class="mostrar" id="mostrar"></div>
             </div>
         </fieldset>
-        <fieldset class="informacion">
+        <fieldset class="informacion" id="informacion">
             <legend>Información</legend>
             <br>
             <p> Id del paquete:</p>

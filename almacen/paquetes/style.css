@@ -203,9 +203,15 @@ fieldset{
     overflow-y: scroll; 
 }
 
-form textarea,input,select{
-    color: black;
+form input,select{
+    color: var(--texto);
     margin-top: 60px;
+    background-color: #4c6c58;
+    border: 1px white;
+    border-radius: 10px;
+    height: 40px;
+    font-size: 15px;
+    box-shadow: 2px 2px 7px black;
 }
 form select{
     position: relative;
@@ -268,4 +274,24 @@ form select{
 }
 main{
     position: relative;
+}
+.paqueteBoton{
+    color: #fff;
+    font-family: var(--font-texto);
+    background-color: var(--boton-principal);
+    font-size: 20px;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    box-shadow: 5px 5px 5px #000;
+}
+
+.paqueteBoton:hover{
+    background-color: #23362a;
+}
+
+.paqueteBoton:focus{
+    background-color: orange;
 }

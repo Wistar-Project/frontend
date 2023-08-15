@@ -1,22 +1,16 @@
+import { serverUrls } from '../../utils/consts.js'
 const header= document.querySelector('header')
 
 window.addEventListener('scroll', () => {
     header.classList.toggle('activar', this.window.scrollY > 0)
 })
 
-function crearPaquete(){
+document.getElementById('boton-crear').addEventListener('click', function(){
     const form=document.getElementById('container-crear');
     form.classList.toggle('mostrar');
-    
-}
+})
 
-function asignarLoteYPaquete(){
-    const asignar=document.getElementById('asignar');
-    asignar.classList.toggle('ver');
-}
-function cerrarVentanaAsignar(){
-    document.getElementById('asignar').classList.toggle("ver");
-}
+
 document.querySelector('form')
 .addEventListener('submit', e =>{
     e.preventDefault()
@@ -24,7 +18,7 @@ document.querySelector('form')
         new FormData(e.target)
     )
     console.log(JSON.stringify(data))
-    fetch("http://localhost:8000/api/v1/paquetes", {
+    fetch(`${serverUrls.almacenes}/api/v1/paquetes`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"  
@@ -66,22 +60,57 @@ async function obtenerYMostrarPaquetes(){
     mostrarPaquetes(paquetes)
 
     async function obtenerPaquetes(){
-        const response = await fetch('http://localhost:8000/api/v1/paquetes')
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`)
         return await response.json()
     }
 
     function mostrarPaquetes(paquetes){
         paquetes.map(paquete => {
-            const p = document.createElement('p')
-            p.textContent = paquete.id
-            paquetesContainer.appendChild(p)
-            paquetesContainer.appendChild(p).classList.toggle('paquetes-creados')
-            paquetesContainer.appendChild(p).style.cursor = "pointer"
-            paquetesContainer.appendChild(p).style.margin = "20px"
-            paquetesContainer.appendChild(p).style.width1 = "100%"
+            const button = document.createElement('button')
+            button.textContent = paquete.id
+            button.className = "paqueteBoton"
+            button.addEventListener('click', function() {
+                mostrarInformacionDePaquete(paquete.id)
+            })
+            paquetesContainer.appendChild(button)
+            paquetesContainer.appendChild(button).classList.toggle('paquetes-creados')
+            paquetesContainer.appendChild(button).style.cursor = "pointer"
+            paquetesContainer.appendChild(button).style.margin = "20px"
+            paquetesContainer.appendChild(button).style.width1 = "100%"
             
         })
     }
  
 }
 obtenerYMostrarPaquetes()
+
+const paqueteInfo = document.getElementById("informacion")
+
+async function mostrarInformacionDePaquete(idPaquete){
+    const { 
+        pesoEnKg, 
+        camionAsignado, 
+        fechaModificacion, 
+        direccionDestino
+    } = await obtenerInformacionDePaquete(idPaquete)
+
+    paqueteInfo.innerHTML = `
+        <legend>Información</legend>
+        <br>
+        <p> Id del paquete: ${idPaquete}</p>
+        <br>
+        <p> Peso (kg): ${pesoEnKg}</p>
+        <br>
+        <p>Vehiculo asignado: no</p>
+        <br>
+        <p>Fecha de modificación: ${fechaModificacion}</p>
+        <br>
+        <p>Dirección destino: ${direccionDestino}</p>
+    
+    `
+
+    async function obtenerInformacionDePaquete(idPaquete){
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes/${idPaquete}`)
+        return await response.json()
+    }
+}
