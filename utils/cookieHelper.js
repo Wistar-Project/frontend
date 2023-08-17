@@ -32,3 +32,5 @@ export function getCookie(cname) {
 export function deleteCookie(name){
   setCookie(name, "", "Thu, 01 Jan 1970 00:00:00 UTC")
 }
+
+window.deleteCookie = deleteCookie
