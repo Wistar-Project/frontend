@@ -197,3 +197,6 @@ footer div#logo-nombre{
     font-size: 20px;
 }
 
+.bandera:hover{
+    cursor: pointer;
+}
