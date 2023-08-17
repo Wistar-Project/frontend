@@ -1,4 +1,4 @@
-import { setCookie } from "./utils/cookieHelper.js"
+import { setCookie } from "./cookieHelper.js"
 
 const spanishButton = document.querySelector('#bandera-es')
 const englishButton = document.querySelector('#bandera-en')
