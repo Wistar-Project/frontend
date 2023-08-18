@@ -18,13 +18,13 @@
 <body>
     <div id="error-container">
         <img src="/img/error.png" alt="Error">
-        <p>Ha ocurrido un error. Revise los campos por favor.</p>
+        <p data-text-id="8">Ha ocurrido un error. Revise los campos por favor.</p>
     </div>
     <header>
         <a href="/">
             <div class="logo">
                     <img src="/img/logo.png" alt="logo" class="logo-app">
-                    <h1 data-text-id="1">GoTruck</h1>
+                    <h1>GoTruck</h1>
             </div>
         </a>
         <div class="menu">
@@ -43,14 +43,14 @@
                 <img src="/img/avatar.png" alt="login" class="avatar-login">
         </div>    
     </header>
-    <h3 id="titulo">Iniciar sesión</h3>
+    <h3 id="titulo" data-text-id="4">Iniciar sesión</h3>
     <main>
         <fieldset>
-            <legend>Datos para el inicio de sesión</legend>
+            <legend data-text-id="5">Datos para el inicio de sesión</legend>
             <div id="left-side-image">
                 <div>
                     <h3>GoTruck</h3>
-                    <p>Inicie sesión para acceder al sitio.</p>
+                    <p data-text-id="6">Inicie sesión para acceder al sitio.</p>
                 </div>
             </div>
             <form id="input-container">
@@ -59,23 +59,23 @@
                     <input type="text" placeholder="usuario@gotruck.com" name="username" id="email">
                 </div>
                 <div>
-                    <label for="contra">Contraseña:</label>
+                    <label for="contra"><span data-text-id="7">Contraseña</span>:</label>
                     <input type="password" placeholder="1234" name="password" id="contra">
                 </div>
-                <button id="iniciar-sesion-btn" type="submit">Iniciar sesión</button>
+                <button id="iniciar-sesion-btn" type="submit" data-text-id="4">Iniciar sesión</button>
             </form>
         </fieldset>
     </main>
     <footer>
         <div class="flex-container">
-            <a href="#">Política y privacidad</a>
-            <a href="#">Contacto</a>
+            <a href="#" data-text-id="1">Política y privacidad</a>
+            <a href="#" data-text-id="2">Contacto</a>
             <div id="logo-nombre">
                 <h3 id="titulo-footer">GoTruck</h3>
                 <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
             </div>
         </div>
-        <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+        <p id="copyright">© GoTruck 2023 - <span data-text-id="3">Todos los derechos reservados</span></p>
     </footer>
 </body>
 </html>
