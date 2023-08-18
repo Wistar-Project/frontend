@@ -8,7 +8,6 @@ async function updateAvatar(){
         setCookie('name', await getName())
     
     const name = getCookie('name')
-    if(!name) return
     changeAvatar(name)
 
     async function getName(){
@@ -20,7 +19,6 @@ async function updateAvatar(){
                 "Authorization": `Bearer ${token}`
             }
         })
-        if(!response.ok) return
         const { nombre, apellido } = await response.json()
         return `${nombre} ${apellido}`
     }
@@ -50,5 +48,6 @@ document.getElementById('boton-cerrar-sesion').addEventListener('click', () => {
         }
     })
     deleteCookie('token')
+    deleteCookie('name')
     window.location.href = '/login'
 })
