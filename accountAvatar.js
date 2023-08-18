@@ -1,10 +1,13 @@
-import { deleteCookie, getCookie } from "./utils/cookieHelper.js"
+import { deleteCookie, getCookie, setCookie } from "./utils/cookieHelper.js"
 import { serverUrls } from "./utils/consts.js"
 
 updateAvatar()
 
 async function updateAvatar(){
-    const name = await getName()
+    if(!getCookie('name'))
+        setCookie('name', await getName())
+    
+    const name = getCookie('name')
     if(!name) return
     changeAvatar(name)
 
