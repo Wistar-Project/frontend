@@ -28,3 +28,6 @@ function intercambiarAtributo(atributo){
     banderaActual[atributo] = banderaSiguiente[atributo]
     banderaSiguiente[atributo] = temp
 }
+
+if(getCookie('language') === "en") 
+    intercambiarAtributos()
