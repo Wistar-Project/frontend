@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/png">
     <script src="headerAnimation.js" defer></script>
     <script src="accountAvatar.js" defer type="module"></script>
-    
+    <script src="changeLanguage.js" defer type="module"></script>
 </head>
 <body>
     <header>
@@ -25,11 +25,11 @@
         <div class="menu">
             <ul class="nav">
                 <li>
-                    <img src="img/espana.png" class="bandera" alt="Español">
+                    <img src="img/espana.png" class="bandera" alt="Español" id="bandera-actual">
                     <img src="img/caret-abajo.png" class="flecha" alt="Abrir menú">
                     <ol>
                         <li>
-                            <img src="img/reino-unido.png" class="bandera" alt="Inglés">
+                            <img src="img/reino-unido.png" class="bandera" alt="Inglés" id="bandera-siguiente">
                         </li>
                     </ol>
                 </li>
@@ -73,14 +73,14 @@
     </main>
     <footer>
         <div class="flex-container">
-            <a href="#">Política y privacidad</a>
-            <a href="#">Contacto</a>
+            <a href="#" data-text-id="1">Política y privacidad</a>
+            <a href="#" data-text-id="2">Contacto</a>
             <div id="logo-nombre">
                 <h3 id="titulo-footer">GoTruck</h3>
-                <img src="img/logo.png" alt="logo" class="logo-app" id="logo-footer">
+                <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
             </div>
         </div>
-        <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+        <p id="copyright">© GoTruck 2023 - <span data-text-id="3">Todos los derechos reservados</span></p>
     </footer>
 </body>
 </html>

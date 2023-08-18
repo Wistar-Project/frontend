@@ -1,5 +1,5 @@
-import { getCookie, setCookie } from "./cookieHelper.js"
-import { actualizarParrafos } from "./updateText.js"
+import { getCookie, setCookie } from "./utils/cookieHelper.js"
+import { actualizarParrafos } from "./utils/updateText.js"
 
 const banderaSiguiente = document.getElementById('bandera-siguiente')
 const banderaActual = document.getElementById('bandera-actual')
