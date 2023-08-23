@@ -54,13 +54,18 @@
                 </div>
             </div>
             <form id="input-container">
-                <div>
+                <div class="flex">
                     <label for="email">Email:</label>
                     <input type="text" placeholder="usuario@gotruck.com" name="username" id="email">
                 </div>
-                <div>
+                <div class="flex">
                     <label for="contra"><span data-text-id="303">Contraseña</span>:</label>
                     <input type="password" placeholder="1234" name="password" id="contra">
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="show-pass-btn">
+                    <label id="show-pass-label" for="show-pass-btn">Mostrar contraseña</label>
+                </div>
                 </div>
                 <button id="iniciar-sesion-btn" type="submit" data-text-id="300">Iniciar sesión</button>
             </form>

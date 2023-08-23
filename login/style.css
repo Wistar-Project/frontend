@@ -61,7 +61,7 @@ fieldset{
     text-align: center;
 }
 
-fieldset div{
+fieldset .flex{
     display: flex;
     flex-direction: column;
 }
@@ -131,4 +131,10 @@ button:hover{
     background-color: var(--boton-principal);
     animation-name: mostrarMensajeError;
     animation-duration: 1s;
+}
+
+#show-pass-label{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }

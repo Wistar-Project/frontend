@@ -30,3 +30,12 @@ function showErrorMessage(){
     const errorContainer = document.getElementById('error-container')
     errorContainer.className = "mostrar"
 }
+
+const passwordElement = document.getElementById("contra")
+
+document.getElementById('show-pass-btn').addEventListener('click', event => {
+    const { checked } = event.target
+    if(checked)
+        return passwordElement.type = "text"
+    passwordElement.type = "password"
+})
