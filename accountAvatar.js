@@ -13,14 +13,12 @@ async function updateAvatar(){
     async function getName(){
         const token = getCookie('token')
         if(!token) return
-        const response = await fetch(`${serverUrls.oauth}/api/v1/persona`, {
+        const response = await fetch(`${serverUrls.oauth}/api/v1/nombre`, {
             headers: {
-                "Accept": "application/json",
                 "Authorization": `Bearer ${token}`
             }
         })
-        const { nombre, apellido } = await response.json()
-        return `${nombre} ${apellido}`
+        return await response.text()
     }
 
     async function changeAvatar(name){ 

@@ -1,6 +1,6 @@
 export const client = {
-    id: "5",
-    secret: "mrrdI77A4pz08qTvw8NPEp3QSUHalz9zo8XoW0T9"
+    id: "1",
+    secret: "9rpS3urGK9ipVRvRSaPOUan084QklNyoIZ3lYKns"
 }
 
 export const serverUrls = {
