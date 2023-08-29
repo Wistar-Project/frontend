@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTruck</title>
+    <script src="../utils/authChecker.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/png">
+    <script src="main.js" type="module" defer></script>
+    <script src="../accountAvatar.js" defer type="module"></script>
+    <script src="../headerAnimation.js" type="module" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png" alt="logo" class="logo-app">
+            <h1>GoTruck</h1>
+        </div>
+        <h1 class="titulo">Buscar un pedido</h1>
+        <div class="menu">
+            <ul class="nav">
+                <li><a href="#"><img src="../img/espana.png" class="bandera" alt="Español" id="bandera-actual"><a class="bandera-reino-unido" href="#"><img src="img/reino-unido.png" class="bandera" id="bandera-siguiente" alt="Inglés"></a><img src="../img/caret-abajo.png" class="flecha" alt="Abrir menú"></a>
+                <ol>
+                    <li><a href="#"><img src="../img/reino-unido.png" class="bandera" alt="Inglés"></a></li>
+                </ol>
+            </li>
+            
+            </ul>
+                <img src="../img/avatar.png" alt="login" class="avatar-login" id="account-avatar">
+        </div>    
+    </header>
+    
+    <main>
+      
+        <fieldset class="informacion">
+            <legend>Información de la busqueda </legend>
+            <p>id:</p>
+            <p>peso:</p>
+            <p>estado:</p>
+        </fieldset>
+        <form action="" method="post">
+                <input type="text" name="busqueda" maxlength="200" minlength="1" id="buscador">
+                <input type="submit" value="Buscar" class="boton">
+        </form>
+    </main>
+    <footer>
+        <div class="flex-container">
+            <a href="#">Política y privacidad</a>
+            <a href="#">Contacto</a>
+            <div id="logo-nombre">
+                <h3 id="titulo-footer">GoTruck</h3>
+                <img src="../img/logo.png" alt="logo" class="logo-app" id="logo-footer">
+            </div>
+        </div>
+        <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
