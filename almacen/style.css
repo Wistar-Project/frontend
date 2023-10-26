@@ -76,7 +76,28 @@ header > h2{
     width: 250px;
     height: 250px;
 }
-
+.volver{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--boton-principal);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    font-size: 20px;
+    color: white;
+    position: fixed;
+    left: 20px;
+    font-family: var(--font-texto);
+    top: 85px;
+    user-select: none;
+}
+.volver:hover{
+    transition: all .3s;
+    transform: scale(1.03);
+}
 /* RESPONSIVE  */
 @media (min-width:1450px){
     .container{
@@ -93,12 +114,17 @@ header > h2{
         height: 600px;
     }
 }
-@media (max-width:430px){
+@media (max-width:450px){
     #lote-container img{
         width: 200px;
         height: 200px;
     }
-    
+    .titulo{
+        margin-top: 80px;
+    }
+    .volver{
+        left: 35%;
+    }
     #paquete-container img{
         width: 175px;
         height: 175px;

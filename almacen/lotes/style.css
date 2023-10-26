@@ -9,7 +9,9 @@
     --boton-secundario: #253e41;
     --acento: #172620
 }
-
+*{
+    user-select: none;
+}
 html{
     animation-name: intro;
     animation-duration: .6s;
@@ -31,212 +33,146 @@ header.activar{
     transform: scale(0.8);
     position: sticky;
 }
-
-.boton{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 120px;
-    height: 40px;
-    color: var(--texto);
-    background-color: var(--boton-principal);
-    border-radius: 20px;
-    font-size: 25px;
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 2px 2px black;
-}
-#boton-crear{
- right: 5px;
-}
+/* MAIN */
 main{
-    position: relative;
-}
-
-.crear{
-    width: 120px;
-    height: 40px;
-    position: relative;
-    left: 35%;
-    top: 0;
-}
-.boton-asigar{
-    position: relative;
-    width: 120px;
-    height: 40px;
-    left: 50%;
-}
-.boton-cerrar{
-    position: relative;
-    width: 120px;
-    height: 40px;
-    left: 20px;
-    margin-bottom: 85px;
-}
-.boton:hover{
-    transition: all .2s ease;
-    transform: scale(1.03);
-    box-shadow: 1px 1px 1px black;
-    background-color: #4c6c58;
-}
-.boton:focus{
-   animation-name: boton;
-   animation-duration: .2s;
-   animation-fill-mode: forwards;
-}
-@keyframes boton{
-    0%{
-        scale: 1;
-        box-shadow: 3px 3px 3px black;
-    }
-    50%{
-        scale: 0.9;
-        box-shadow: 3px 3px 3px black;
-    }
-    100%{
-        scale: 1;
-        box-shadow: 3px 3px 3px black;
-    }
-}
-.lotes{
-    height: 500px ;
-    width: 50%;
-    padding: 15px;
-    font-size: 25px; 
-    text-align: center;
-}
-.informacion{
-    min-height: 500px ;
-    width: 35%;
-    padding: 15px;
-    font-size: 25px; 
-}
-fieldset img{
-    width: 70px;
-    height: 70px;
-    position: relative;
-    left: 80%;
-    top: -40px;
-    cursor: pointer;
-}
-fieldset > img:hover{
-    transition: all .1s ease;
-    scale: 1.03;
-    box-shadow: .8px .8px 2px black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
 }
 fieldset{
-    position: relative;
-    border:none;
-    top: 50px;
-    box-shadow: 1px 1px 7px black;
-    margin: 10px;
+    border: none;
+    box-shadow: 1px 1px 3px black;
+    font-size: 25px;
 }
-.container-crear{
-    font-size: 20px;
-    display: none;
-    width: 350px;
-    height: 450px;
-    position: absolute;
-    top: 10%;
-    left: 35%;
-    background-color: var(--boton-secundario);
-    opacity: 0.98;
-}
-.container-crear.mostrar{
-    animation-name: entrada ;
-    animation-duration: .2s;
-    animation-fill-mode: forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-@keyframes entrada {
-    0%{
-        scale:0;
-    }
-    100%{
-        scale:1;
-    }
-}
-.paquetes{
-    width: 70%;
-    height: 200px;
-    left: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    top: 10px;
-    left: 15%;
-}
-#form-crear{
-    width: 100%;
-}
-.scroll{
-    width: 100%;
-    height: 100%;
+.lotes{
+    width: 600px;
+    height: 480px;
     overflow: hidden;
     overflow-y: scroll;
 }
-.asignar{
-    font-size: 20px;
-    display: none;
-    width: 350px;
-    height: 450px;
-    position: absolute;
-    top: 15%;
-    left: 35%;
-    background-color: var(--boton-secundario);
+.informacion{
+    width: 550px;
+    height: 480px;
 }
-.asignar.ver{
-    animation-name: ver;
-    animation-duration: .6s;
-    animation-fill-mode: forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-@keyframes ver {
-    0%{
-        opacity: 0.1;
-    }
-    100%{
-        opacity: 0.95;
-    }
-}
-.scrolldos{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll; 
-}
-.vehiculos{
-    width: 70%;
-    position: relative;
-    height: 300px;
-    left: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    top:0;
-}
-form select{
-    background-color: var(--boton-principal);
+#boton-crear{
     width: 100px;
-    width: 60%;
-    height: 80px;
-    color: var(--texto);
-    border: 1px white;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px #253e41;
+    height: 30px;
+    background-color: var(--boton-principal);
+    font-family: var(--font-texto);
+    color: white;
+    font-size: 25px;
+    position: fixed;
+    right: 30px;
+    top: 80px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
 }
-.scrolltres{
-    width: 100%;
-    height: 100%;
+#boton-crear:hover{
+    transition: .3s;
+    transform: scale(1.03);
+    background-color: #446451;
+}
+.volver{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--boton-principal);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    left: 20px;
+    font-family: var(--font-texto);
+    top: 80px;
+    user-select: none;
+}
+.volver:hover{
+    transition: all .3s;
+    transform: scale(1.03);
+}
+.crear{
+    width: 360px;
+    height: 450px;
+    background-color: var(--boton-secundario);
+    border: 1px solid black;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 300;
+    display: none;   
+    
+}
+.crear svg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.crear.mostrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: ver forwards .2s ;
+}
+@keyframes ver{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
+#crear-lote{
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 110px;
+    background-color: var(--boton-principal);
+    font-family: var(--font-texto);
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+#crear-lote:hover{
+    transition: .3s;
+    background-color: #4d6958;
+    transform: scale(1.03);
+}
+.crear.mostrar > form{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.agregar-paquetes{
+    width: 90%;
+    height: 250px;
     overflow: hidden;
     overflow-y: scroll;
+    background-color: var(--boton-principal);
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+select{
+    width: 220px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left:30px;
+    background-color: var(--boton-principal);
+    border: 1px solid black;
 }
 .lotes-creados{
     font-size: 40px;
@@ -296,7 +232,7 @@ form select{
 .loteBoton{
     color: #fff;
     font-family: var(--font-texto);
-    background-color: var(--boton-principal);
+    background-color: var(--boton-secundario);
     font-size: 20px;
     width: 80px;
     height: 30px;
@@ -307,9 +243,29 @@ form select{
 }
 
 .loteBoton:hover{
-    background-color: #23362a;
+    transition: all .2s;
+    background-color: #2c3f33;
 }
 
 .loteBoton:focus{
     background-color: orange;
+}
+
+/* RESPONSIVE */
+@media (max-width:500px){
+    .crear.mostrar{
+        width: 100%;
+        margin: 0;
+        top: 80px;
+        height: 45%;
+    }
+    #crear-lote{
+        margin-left: 90px;
+    }
+}
+@media (max-width:350px){
+    .informacion{
+        font-size: 16px;
+        height: 350px;
+    }
 }

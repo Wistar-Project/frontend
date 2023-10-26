@@ -206,3 +206,8 @@ footer #logo-nombre{
     align-items: center;
    }
 }
+@media (max-width:350px){
+    h1{
+        font-size: 27px;
+    }
+}

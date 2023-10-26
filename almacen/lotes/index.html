@@ -44,16 +44,15 @@
             </div>  
         </div>    
     </header>
-    <main>  
-            <button type="button" class="boton" id="boton-crear">Crear</button>
-     
+    <a href="javascript:history.back()" class="volver"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+            <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+          </svg>
+        Volver</a>
+        <button type="button" class="boton" id="boton-crear">Crear</button>
+    <main> 
         <fieldset class="lotes" id="lotes">
             <legend>Lotes</legend>
-            <div class="scrolltres">
-                <div class="mostrar" id="mostrar">
-
-                </div>
-            </div>
         </fieldset>
         <fieldset class="informacion" id="informacion">
             <legend>Información</legend>
@@ -70,51 +69,31 @@
             <br>
             <p>Cantidad de paquetes:</p>
         </fieldset>
-        <fieldset class="container-crear" id="container-crear">
+        <fieldset class="crear" id="container-crear">
             <legend>Crear lote</legend>
-            <form action="" method="post" id="form-crear">
-                <center> 
-                     <label for="destino"> Destino :</label> 
-                        <select name="destino" required>
-                            <option value="1">prueba</option>
-                        </select>
-                </center>
-                <br>
-                <fieldset class="paquetes">
-                    <div class="scroll">
-                        <div class="inputs" id="inputs">
-                         
-                        </div>
-                    </div>
-                </fieldset>
-                <br>
-                <input type="submit" value="Crear" class="boton crear">
+            <svg id="close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+              </svg>
+            <form action="#">
+                <label for="destino">Destino</label><select name="destino">
+                    <option value="1">Prueba</option>
+                </select>
+                <label for="">Paquetes a agregar</label>
+                <div class="agregar-paquetes" id="agregar-paquetes">
+
+                </div>
+                <input type="submit" id="crear-lote" value="Crear">
             </form>
         </fieldset>
-        <fieldset class="asignar" id="asignar">
-            <form action="" method="post">
-                <input type="submit" value="Asignar" class="boton boton-asignar">
-                <button type="button" class="boton boton-cerrar" onclick="cerrarVentanaAsignar()">Cerrar</button>
-                <fieldset class="vehiculos">
-                    <div class="scrolldos">
-                        <div class="inputsdos">
-           
-                        </div>
-                    </div>
-                </fieldset> 
-            </form>
-        </fieldset>
+        
     </main>
     <footer>
-        <div class="flex-container">
             <a href="#">Política y privacidad</a>
-            <a href="#">Contacto</a>
+            <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
             <div id="logo-nombre">
                 <h3 id="titulo-footer">GoTruck</h3>
                 <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
             </div>
-        </div>
-        <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>

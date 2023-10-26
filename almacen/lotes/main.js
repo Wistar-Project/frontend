@@ -4,14 +4,10 @@ document.getElementById('boton-crear').addEventListener('click', function(){
     const form=document.getElementById('container-crear');
     form.classList.toggle('mostrar');
 })
- function asignarLoteYPaquete(){
-    const asignar=document.getElementById('asignar');
-    asignar.classList.toggle('ver');
-}
-function cerrarVentanaAsignar(){
-    document.getElementById('asignar').classList.toggle("ver");
-}
-
+document.getElementById('close').addEventListener('click' , function(){
+    const form= document.getElementById('container-crear')
+    form.classList.toggle('mostrar')
+})
 document.querySelector('form')
 .addEventListener('submit', e =>{
     e.preventDefault()
@@ -55,7 +51,8 @@ document.querySelector('form')
     
 })
 
-const lotesContainer = document.getElementById('mostrar')
+const lotesContainer = document.getElementById('lotes')
+const paquetesAgregar = document.getElementById('agregar-paquetes')
 
 async function obtenerYMostrarLotes(){
     const lotes = await obtenerLotes()
