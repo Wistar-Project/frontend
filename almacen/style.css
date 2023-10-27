@@ -13,6 +13,7 @@
     text-align: center;
     font-size: 35px;
     margin: 30px;
+    font-family: var(--font-titulo);
 }
 header > h2{
     font-size: 30px;
@@ -125,13 +126,19 @@ header > h2{
     .volver{
         left: 35%;
     }
+    .container{
+        box-shadow: none;
+    }
     #paquete-container img{
         width: 175px;
         height: 175px;
     }
+    #paquete-container {
+        margin-top: -20px;
+    }
+}
     @media (max-width: 300px){
         .container{
             margin: 0;
         }
     }
-}

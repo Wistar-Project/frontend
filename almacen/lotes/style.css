@@ -109,12 +109,11 @@ fieldset{
     margin: 0 auto;
     z-index: 300;
     display: none;   
-    
 }
 .crear svg{
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -132,6 +131,36 @@ fieldset{
     100%{
         scale: 1;
     }
+}
+#container-asignar{
+    width: 360px;
+    height: 450px;
+    background-color: var(--boton-secundario);
+    border: 1px solid black;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 300;
+    display: none;   
+}
+#container-asignar.ver{
+    display: flex;
+    animation: asignar .3s forwards;
+}
+@keyframes asignar{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+#cerrar{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 #crear-lote{
     width: 100px;
@@ -177,6 +206,16 @@ select{
 .lotes-creados{
     font-size: 40px;
     font-family: var(--font-texto);
+}
+.informacion svg{
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.informacion > div{
+    display: flex;
+    flex-direction: row;
 }
 .alerta-creada{
     font-size: 35px;
@@ -234,9 +273,9 @@ select{
     font-family: var(--font-texto);
     background-color: var(--boton-secundario);
     font-size: 20px;
-    width: 80px;
-    height: 30px;
-    border: 1px solid #fff;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000000;
     border-radius: 10px;
     transition: background-color 0.2s;
     box-shadow: 5px 5px 5px #000;
@@ -261,6 +300,9 @@ select{
     }
     #crear-lote{
         margin-left: 90px;
+    }
+    #container-asignar.ver{
+        width: 100%;
     }
 }
 @media (max-width:350px){
