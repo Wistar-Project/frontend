@@ -9,7 +9,9 @@
     --boton-secundario: #253e41;
     --acento: #172620
 }
-
+*{
+    user-select: none;
+}
 html{
     animation-name: intro;
     animation-duration: .6s;
@@ -34,144 +36,179 @@ header.activar{
 }
 
 /* MAIN */
-
-.boton{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 120px;
-    height: 40px;
-    color: var(--texto);
-    background-color: var(--boton-principal);
-    border-radius: 20px;
-    font-size: 25px;
-    cursor: pointer;
-    border: none;
-    box-shadow: 2px 2px 2px black;
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
 }
+fieldset{
+    border:none;
+    box-shadow: 1px 1px 7px black;
+    font-size: 25px;
+}
+
 .crear{
     width: 120px;
     height: 40px;
     position: relative;
     left: 35%;
-
 }
-.boton-cerrar{
-    position: relative;
-    width: 120px;
-    height: 40px;
-    left: 20px;
-    margin-bottom: 85px;
-}
-.boton-asigar{
-    position: relative;
-    width: 120px;
-    height: 40px;
-    left: 50%;
-}
-.boton:hover{
-    transition: all .2s ease;
-    transform: scale(1.03);
-    box-shadow: 1px 1px 1px black;
-    background-color: #4c6c58;
-}
-.boton:focus{
-    animation-name: boton;
-    animation-duration: .2s;
-    animation-fill-mode: forwards;
- }
- @keyframes boton{
-     0%{
-         scale: 1;
-         box-shadow: 3px 3px 3px black;
-     }
-     50%{
-         scale: 0.9;
-         box-shadow: 3px 3px 3px black;
-     }
-     100%{
-         scale: 1;
-         box-shadow: 3px 3px 3px black;
-     }
- }
 .paquetes{
-    height: 500px ;
-    width: 50%;
-    padding: 15px;
-    font-size: 25px; 
-    text-align: center;
+    width: 600px;
+    height: 480px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 .informacion{
-    min-height: 500px ;
-    width: 40%;
-    padding: 15px;
-    font-size: 25px; 
+    width: 550px;
+    height: 480px;
 }
-fieldset img{
-    width: 70px;
-    height: 70px;
-    position: relative;
-    left: 80%;
-    top: -40px;
+#boton-crear{
+    width: 100px;
+    height: 30px;
+    background-color: var(--boton-principal);
+    font-family: var(--font-texto);
+    color: white;
+    font-size: 25px;
+    position: fixed;
+    right: 30px;
+    top: 75px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
     cursor: pointer;
 }
-fieldset > img:hover{
-    transition: all .1s ease;
-    scale: 1.03;
-    box-shadow: .8px .8px 2px black;
+#boton-crear:hover{
+    transition: .3s;
+    transform: scale(1.03);
+    background-color: #446451;
 }
-fieldset{
-    border:none;
-    position: relative;
-    top: 50px;
-    box-shadow: 1px 1px 7px black;
-    margin: 10px;
+.volver{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--boton-principal);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    left: 20px;
+    font-family: var(--font-texto);
+    top: 80px;
+    user-select: none;
+}
+.volver:hover{
+    transition: all .3s;
+    transform: scale(1.03);
 }
 .container-crear{
-    font-size: 20px;
-    display: none;
-    width: 350px;
-    height: 350px;
-    position: absolute;
-    top: 15%;
-    left: 35%;
+    width: 380px;
+    height: 500px;
     background-color: var(--boton-secundario);
-    opacity: 0.98;
+    border: 1px solid black;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 300;
+    display: none;   
 }
 .container-crear.mostrar{
     animation-name: entrada ;
     animation-duration: .6s;
     animation-fill-mode: forwards;
     display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-crear.mostrar form{
+    width: 100%;
+    height: 85%;
+    font-size: 20px;
+    font-family: var(--font-texto);
+    margin-left: 35px;
+}
+.container-crear.mostrar form input, .container-crear.mostrar form select{
+    width: 200px;
+    height: 35px;
+    background-color: var(--boton-principal);
+    border: 1px solid black;
+    box-shadow: 0 3px 3px black;
+    border-radius: 10px;
+    margin: 15px;
+}
+.container-crear svg{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+#crear-paquete{
+    width: 100px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 0;
+    background-color: var(--boton-principal);
+    font-family: var(--font-texto);
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+    position: relative;
+    left: calc(50% - 60px);
+}
+#lotes{
+    width: 90%;
+    height: 130px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: var(--boton-principal);
+    display: flex;
+    flex-wrap: wrap;
+}
+.loteBoton{
+    color: #fff;
+    font-family: var(--font-texto);
+    background-color: var(--boton-secundario);
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    box-shadow: 5px 5px 5px #000;
+}
+.loteBoton:hover{
+    transition: all ease-in .3s;
+    background-image:linear-gradient(#2f4437, #3e7a54) ;
+}
+#crear-paquete:hover{
+    transition: .3s;
+    background-color: #4d6958;
+    transform: scale(1.03);
 }
 @keyframes entrada {
     0%{
         opacity: 0.1;
     }
     100%{
-        opacity: 0.95;
+        opacity: 1;
     }
 }
-.asignar{
-    font-size: 20px;
-    display: none;
-    width: 350px;
-    height: 450px;
-    position: absolute;
-    top: 15%;
-    left: 35%;
-    background-color: var(--boton-secundario);
-    opacity: 0.98;
-}
-.asignar.ver{
-    animation-name: ver;
-    animation-duration: .6s;
-    animation-fill-mode: forwards;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+
 @keyframes ver {
     0%{
         opacity: 0.1;
@@ -180,44 +217,48 @@ fieldset{
         opacity: 0.95;
     }
 }
-.scroll{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll; 
+#container-asignar{
+    width: 360px;
+    height: 450px;
+    background-color: var(--boton-secundario);
+    border: 1px solid black;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 300;
+    display: none;   
 }
-.vehiculos{
-    width: 70%;
-    height: 300px;
-    left: 50px;
+#container-asignar.ver{
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    top: -35px;
+    animation: asignar .3s forwards;
 }
-.scrolltres{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll; 
+@keyframes asignar{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.informacion svg{
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.informacion > div {
+    display: flex;
+    flex-direction: row;
+}
+#cerrar{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 
-form input,select{
-    color: var(--texto);
-    margin-top: 60px;
-    background-color: #4c6c58;
-    border: 1px white;
-    border-radius: 10px;
-    height: 40px;
-    font-size: 15px;
-    box-shadow: 2px 2px 7px black;
-}
-form select{
-    position: relative;
-    width: 50%;
-    left: 15%;
-}
+
 .paquetes-creados{
     font-size: 40px;
     font-family: var(--font-texto);
@@ -227,12 +268,10 @@ form select{
     font-family: var(--font-texto);
     background-color: green;
     width: 100%;
-    position: sticky;
+    position: fixed;
     z-index: 999;
-    position: absolute;
     top: 0;
-    height: 40px;
-    text-align: center;
+    min-height: 40px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px black;
     animation-name: passed;
@@ -252,9 +291,8 @@ form select{
     font-family: var(--font-texto);
     background-color: red;
     width: 100%;
-    position: sticky;
+    position: fixed;
     z-index: 999;
-    position: absolute;
     top: 0;
     height: 40px;
     text-align: center;
@@ -272,26 +310,51 @@ form select{
         opacity: 1;
     }
 }
-main{
-    position: relative;
-}
+
 .paqueteBoton{
     color: #fff;
     font-family: var(--font-texto);
-    background-color: var(--boton-principal);
+    background-color: var(--boton-secundario);
     font-size: 20px;
-    width: 80px;
-    height: 30px;
-    border: 1px solid #fff;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000000;
     border-radius: 10px;
     transition: background-color 0.2s;
     box-shadow: 5px 5px 5px #000;
 }
 
 .paqueteBoton:hover{
-    background-color: #23362a;
+    background-image:linear-gradient(var(--boton-principal), var(--boton-secundario)) ;
 }
 
 .paqueteBoton:focus{
     background-color: orange;
+}
+
+/* RESPONISVE */
+
+@media (max-width:500px){
+ .paquetes , .informacion{
+    width: 100%;
+    padding: 30px;
+ }
+ .container-crear.mostrar{
+    width: 100%;
+    top: 160px;
+ }
+ .informacion{
+    font-size: 18px;
+    height: 350px;
+ }
+ .container-crear.mostrar form input ,.container-crear.mostrar form select {
+    width: 250px;
+    height: 40px;
+ }
+ #boton-crear{
+    margin-top: 5px;
+ }
+ #container-asignar.ver{
+    width: 100%;
+ }
 }

@@ -135,3 +135,33 @@ let doc = parser.parseFromString(svgCode,"image/svg+xml");
     }
 }
 
+const paquetesContainer = document.getElementById('agregar-paquetes')
+
+async function obtenerYMostrarPaquetes(){
+    const paquetes= await obtenerPaquetes()
+    mostrarPaquetes(paquetes)
+
+    async function obtenerPaquetes(){
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`)
+        return await response.json()
+    }
+
+    function mostrarPaquetes(paquetes){
+        paquetes.map(paquete => {
+            const button = document.createElement('button')
+            button.textContent = paquete.id
+            button.className = "paqueteBoton"
+            button.addEventListener('click', function() {
+                mostrarInformacionDePaquete(paquete.id)
+            })
+            paquetesContainer.appendChild(button)
+            paquetesContainer.appendChild(button).classList.toggle('paquetes-creados')
+            paquetesContainer.appendChild(button).style.cursor = "pointer"
+            paquetesContainer.appendChild(button).style.margin = "20px"
+            paquetesContainer.appendChild(button).style.width1 = "100%"
+            
+        })
+    }
+ 
+}
+obtenerYMostrarPaquetes()
