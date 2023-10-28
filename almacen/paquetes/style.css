@@ -81,6 +81,7 @@ fieldset{
     border-radius: 15px;
     box-shadow: 0 0 3px black;
     cursor: pointer;
+    z-index: 0;
 }
 #boton-crear:hover{
     transition: .3s;

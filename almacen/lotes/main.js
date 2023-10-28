@@ -2,11 +2,21 @@ import  {serverUrls}from '../../utils/consts.js'
 document.getElementById('boton-crear').addEventListener('click', function(){
     const form=document.getElementById('container-crear');
     form.classList.toggle('mostrar');
+    const header = document.querySelector('header')
+    const footer = document.querySelector('footer')
+    document.body.style.backdropFilter = 'grayscale(1)'
+    header.style.filter = 'grayscale(1)'
+    footer.style.filter = 'grayscale(1)'
     
 })
 document.getElementById('close').addEventListener('click' , function(){
-    const form= document.getElementById('container-crear')
-    form.classList.toggle('mostrar')
+    const form=document.getElementById('container-crear');
+    const header = document.querySelector('header')
+    const footer = document.querySelector('footer')
+    form.classList.toggle('mostrar');
+    document.body.style.backdropFilter = 'grayscale(0)'
+    header.style.filter = 'grayscale(0)'
+    footer.style.filter = 'grayscale(0)'
 })
 
 document.querySelector('form')
