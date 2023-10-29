@@ -38,3 +38,17 @@ function obtenerTextoTraducido({ traducciones, id, idioma }){
     )
     return traduccion[0].texto
 }
+
+export function formatearFecha(fecha){
+    const date = new Date(fecha)
+    const options = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false,
+      }
+    return new Intl.DateTimeFormat("en-US", options).format(date).toString()
+}
