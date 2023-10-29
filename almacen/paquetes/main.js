@@ -1,4 +1,28 @@
 import { serverUrls } from '../../utils/consts.js'
+import { getCookie } from '../../utils/cookieHelper.js'
+
+const destinoSelector = document.getElementById("destino-selector")
+mostrarDestinos()
+async function mostrarDestinos(){
+    (await obtenerDestinos()).map(destino => {
+        const opcion = document.createElement("option")
+        opcion.text = destino.direccion
+        opcion.value = destino.id
+        destinoSelector.add(opcion)
+    })
+}
+
+async function obtenerDestinos(){
+    const destinos = await fetch(`${serverUrls.almacenes}/api/v1/destinos`, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "Authorization": `Bearer ${getCookie('token')}`
+        }
+    })
+    return destinos.json()
+}
+
 const header= document.querySelector('header')
 
 document.getElementById('boton-crear').addEventListener('click', function(){
