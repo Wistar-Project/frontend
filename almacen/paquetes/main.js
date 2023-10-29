@@ -1,8 +1,18 @@
 import { serverUrls } from '../../utils/consts.js'
 import { getCookie } from '../../utils/cookieHelper.js'
 
+const lotesContainer = document.getElementById('lotes')
 const destinoSelector = document.getElementById("destino-selector")
+
+destinoSelector.addEventListener('change', selector => {
+    vaciarLotes()
+    obtenerYMostrarLotes()
+})
+
 mostrarDestinos()
+    .then(() => {
+        obtenerYMostrarLotes()
+    })
 async function mostrarDestinos(){
     (await obtenerDestinos()).map(destino => {
         const opcion = document.createElement("option")
@@ -14,7 +24,6 @@ async function mostrarDestinos(){
 
 async function obtenerDestinos(){
     const destinos = await fetch(`${serverUrls.almacenes}/api/v1/destinos`, {
-        method: "GET",
         headers: {
             "Accept": "application/json",
             "Authorization": `Bearer ${getCookie('token')}`
@@ -23,7 +32,9 @@ async function obtenerDestinos(){
     return destinos.json()
 }
 
-const header= document.querySelector('header')
+function vaciarLotes(){
+    lotesContainer.innerHTML = ""
+}
 
 document.getElementById('boton-crear').addEventListener('click', function(){
     const form=document.getElementById('container-crear');
@@ -56,7 +67,7 @@ document.querySelector('form')
     fetch(`${serverUrls.almacenes}/api/v1/paquetes`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"  
+            "Authorization": `Bearer ${getCookie('token')}`
         },
         body: JSON.stringify(data)
     })
@@ -95,7 +106,11 @@ async function obtenerYMostrarPaquetes(){
     mostrarPaquetes(paquetes)
 
     async function obtenerPaquetes(){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`, {
+            headers: {
+                "Authorization": `Bearer ${getCookie('token')}`
+            }
+        })
         return await response.json()
     }
 
@@ -111,8 +126,6 @@ async function obtenerYMostrarPaquetes(){
             paquetesContainer.appendChild(button).classList.toggle('paquetes-creados')
             paquetesContainer.appendChild(button).style.cursor = "pointer"
             paquetesContainer.appendChild(button).style.margin = "20px"
-            paquetesContainer.appendChild(button).style.width1 = "100%"
-            
         })
     }
  
@@ -161,39 +174,39 @@ let doc = parser.parseFromString(svgCode,"image/svg+xml");
         document.getElementById('container-asignar').classList.toggle('ver')
     })
     async function obtenerInformacionDePaquete(idPaquete){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes/${idPaquete}`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes/${idPaquete}`, {
+            headers: {
+                "Authorization": `Bearer ${getCookie('token')}`
+            }
+        })
         return await response.json()
     }
 }
 
-const lotesContainer = document.getElementById('lotes')
-
 async function obtenerYMostrarLotes(){
+    const destinoSelector = document.getElementById('destino-selector')
     const lotes = await obtenerLotes()
     mostrarLotes(lotes)
 
     async function obtenerLotes(){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes/asignar/${destinoSelector.value}`, {
+            headers: {
+                "Authorization": `Bearer ${getCookie('token')}`
+            }
+        })
         return await response.json()
     }
 
     function mostrarLotes(lotes){
-        lotes.map(lote => {
+        lotes.map(idLote => {
             const button = document.createElement('button')
-            button.textContent = lote.id
+            button.textContent = idLote
             button.className = "loteBoton"
-            button.addEventListener('click', function() {
-                mostrarInformacionDeLote(lote.id)
-            })
             lotesContainer.appendChild(button)
             lotesContainer.appendChild(button).classList.toggle('lotes-creados')
             lotesContainer.appendChild(button).style.cursor = "pointer"
             lotesContainer.appendChild(button).style.margin = "10px"
-            lotesContainer.appendChild(button).style.width1 = "100%"
             
         })
     }
 }
-
-
-obtenerYMostrarLotes();
