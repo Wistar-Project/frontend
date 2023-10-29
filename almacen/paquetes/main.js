@@ -1,5 +1,6 @@
 import { serverUrls } from '../../utils/consts.js'
 import { getCookie } from '../../utils/cookieHelper.js'
+import { formatearFecha } from '../../utils/updateText.js'
 
 const lotesContainer = document.getElementById('lotes')
 const destinoSelector = document.getElementById("destino-selector")
@@ -137,11 +138,13 @@ const paqueteInfo = document.getElementById("informacion")
 async function mostrarInformacionDePaquete(idPaquete){
     const { 
         pesoEnKg, 
-        camionAsignado, 
+        vehiculoAsignado, 
         fechaModificacion, 
-        direccionDestino
+        direccionDestino,
+        email,
+        loteAsignado
     } = await obtenerInformacionDePaquete(idPaquete)
-
+    const fechaFormateada = formatearFecha(fechaModificacion)
     paqueteInfo.innerHTML = `
         <legend>Información</legend>
         <br>
@@ -150,12 +153,16 @@ async function mostrarInformacionDePaquete(idPaquete){
         <p> Peso (kg): ${pesoEnKg}</p>
         <br>
         <div id="camion">
-        <p>Vehiculo asignado: ${camionAsignado}</p>
+        <p>Vehiculo asignado: ${vehiculoAsignado}</p>
         </div>
         <br>
-        <p>Fecha de modificación: ${fechaModificacion}</p>
+        <p>Fecha de modificación: ${fechaFormateada}</p>
         <br>
         <p>Dirección destino: ${direccionDestino}</p>
+        <br>
+        <p>Lote asignado: ${loteAsignado}</p>
+        <br>
+        <p>Email: ${email}</p>
     
     `
     let svgCode = `
