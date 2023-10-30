@@ -96,7 +96,8 @@ document.querySelector('form')
         if(response.ok){
             if(loteParaAsignarSeleccionado){
                 asignarALote(response).then(() => {
-                    loteParaAsignarSeleccionado = undefined
+                    loteParaAsignarSeleccionado = 
+                    deseleccionarLotes()
                 })
             }
             const divAlerta = document.createElement('div')
@@ -122,6 +123,7 @@ document.querySelector('form')
         }, 3500)
         console.log(err)
         loteParaAsignarSeleccionado = undefined
+        deseleccionarLotes()
     })
      
     
