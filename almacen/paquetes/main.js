@@ -4,8 +4,9 @@ import { formatearFecha } from '../../utils/updateText.js'
 
 const lotesContainer = document.getElementById('lotes')
 const destinoSelector = document.getElementById("destino-selector")
+let loteParaAsignarSeleccionado
 
-destinoSelector.addEventListener('change', selector => {
+destinoSelector.addEventListener('change', () => {
     vaciarLotes()
     obtenerYMostrarLotes()
 })
@@ -55,8 +56,25 @@ document.getElementById('close').addEventListener('click' , function(){
     document.body.style.backdropFilter = 'grayscale(0)'
     header.style.filter = 'grayscale(0)'
     footer.style.filter = 'grayscale(0)'
+    loteParaAsignarSeleccionado = undefined
+    deseleccionarLotes()
 })
 
+async function asignarALote(data){
+    const response = await data
+    const datosPaquete = await response.json()
+    fetch(`${serverUrls.almacenes}/api/v1/lotes/asignar`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${getCookie('token')}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            lote: loteParaAsignarSeleccionado,
+            paquete: datosPaquete.id
+        })
+    })
+}
 
 document.querySelector('form')
 .addEventListener('submit', e =>{
@@ -68,12 +86,19 @@ document.querySelector('form')
     fetch(`${serverUrls.almacenes}/api/v1/paquetes`, {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${getCookie('token')}`
+            "Authorization": `Bearer ${getCookie('token')}`,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
         },
         body: JSON.stringify(data)
     })
     .then(function(response){
         if(response.ok){
+            if(loteParaAsignarSeleccionado){
+                asignarALote(response).then(() => {
+                    loteParaAsignarSeleccionado = undefined
+                })
+            }
             const divAlerta = document.createElement('div')
             divAlerta.className = 'alerta-creada'
             divAlerta.textContent = "Paquete creado con exito"
@@ -96,6 +121,7 @@ document.querySelector('form')
             document.body.removeChild(divAlerta)
         }, 3500)
         console.log(err)
+        loteParaAsignarSeleccionado = undefined
     })
      
     
@@ -190,6 +216,14 @@ let doc = parser.parseFromString(svgCode,"image/svg+xml");
     }
 }
 
+function deseleccionarLotes(){
+    const lotesContainer = document.getElementById('lotes')
+    for(let i = 0; i < lotesContainer.children.length; i++){
+        lotesContainer.children[i].style.backgroundColor = "#253e41"
+        lotesContainer.children[i].style.border = "1px solid #000"
+    }
+}
+
 async function obtenerYMostrarLotes(){
     const destinoSelector = document.getElementById('destino-selector')
     const lotes = await obtenerLotes()
@@ -209,11 +243,18 @@ async function obtenerYMostrarLotes(){
             const button = document.createElement('button')
             button.textContent = idLote
             button.className = "loteBoton"
+            button.classList.toggle('lotes-creados')
+            button.style.cursor = "pointer"
+            button.style.margin = "10px"
+            button.addEventListener('click', e => {
+                e.preventDefault()
+                deseleccionarLotes()
+                button.style.backgroundColor = "#73b094"
+                button.style.border = "1px solid #fff"
+                loteParaAsignarSeleccionado = button.innerHTML
+                console.log(loteParaAsignarSeleccionado)
+            })
             lotesContainer.appendChild(button)
-            lotesContainer.appendChild(button).classList.toggle('lotes-creados')
-            lotesContainer.appendChild(button).style.cursor = "pointer"
-            lotesContainer.appendChild(button).style.margin = "10px"
-            
         })
     }
 }
