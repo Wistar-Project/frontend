@@ -4,6 +4,12 @@ document.getElementById('boton-crear').addEventListener('click', function(){
     form.classList.toggle('mostrar');
     const header = document.querySelector('header')
     const footer = document.querySelector('footer')
+    const botonCrear = document.getElementById('boton-crear')
+    const botonVolver = document.getElementById('volver')
+    botonCrear.style.filter ='grayscale(1)'
+    botonVolver.style.filter = 'grayscale(1)'
+    botonCrear.style.pointerEvents = 'none'
+    botonVolver.style.pointerEvents = 'none'
     document.body.style.backdropFilter = 'grayscale(1)'
     header.style.filter = 'grayscale(1)'
     footer.style.filter = 'grayscale(1)'
@@ -14,6 +20,12 @@ document.getElementById('close').addEventListener('click' , function(){
     const header = document.querySelector('header')
     const footer = document.querySelector('footer')
     form.classList.toggle('mostrar');
+    const botonCrear = document.getElementById('boton-crear')
+    const botonVolver = document.getElementById('volver')
+    botonCrear.style.filter ='grayscale(0)'
+    botonVolver.style.filter = 'grayscale(0)'
+    botonCrear.style.pointerEvents = 'all'
+    botonVolver.style.pointerEvents = 'all'
     document.body.style.backdropFilter = 'grayscale(0)'
     header.style.filter = 'grayscale(0)'
     footer.style.filter = 'grayscale(0)'
