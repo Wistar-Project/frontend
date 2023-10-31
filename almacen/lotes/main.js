@@ -1,4 +1,5 @@
 import  {serverUrls}from '../../utils/consts.js'
+import { getCookie } from '../../utils/cookieHelper.js';
 document.getElementById('boton-crear').addEventListener('click', function(){
     const form=document.getElementById('container-crear');
     form.classList.toggle('mostrar');
@@ -41,10 +42,11 @@ document.querySelector('form')
     fetch(`${serverUrls.almacenes}/api/v1/lotes`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"  
-        },
+            "Content-Type": "application/json" , 
+            "Authorization":`Bearer ${getCookie("token")}`,   
         body: JSON.stringify(data)
-    })
+        }
+        })
     .then(function(response){
         if(response.ok){
             const divAlerta = document.createElement('div')
@@ -82,7 +84,13 @@ async function obtenerYMostrarLotes(){
     mostrarLotes(lotes)
 
     async function obtenerLotes(){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes` ,
+        {
+            headers:{
+                "Authorization":`Bearer ${getCookie("token")}`
+            }
+        }
+        )
         return await response.json()
     }
 
@@ -152,7 +160,13 @@ let doc = parser.parseFromString(svgCode,"image/svg+xml");
         document.getElementById('container-asignar').classList.toggle('ver')
     })
     async function obtenerInformacionDeLote(idLote){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes/${idLote}`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes/${idLote}`,
+        {
+            headers:{
+                "Authorization":`Bearer ${getCookie("token")}`
+            }
+        }
+        )
         return await response.json()
     }
 }
@@ -164,7 +178,12 @@ async function obtenerYMostrarPaquetes(){
     mostrarPaquetes(paquetes)
 
     async function obtenerPaquetes(){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`)
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`,
+        {
+            headers:{
+                "Authorization":`Bearer ${getCookie("token")}`
+            }
+        })
         return await response.json()
     }
 

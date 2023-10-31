@@ -1,4 +1,4 @@
-import  {serverUrls} from '../../utils/consts.js'
+
 
 document.getElementById('boton-buscar').addEventListener('click', function(){
     const form=document.getElementById('container-buscar');
@@ -65,7 +65,7 @@ async function mostrarInformacionDeLote(idLote){
         <p>Destino: ${destino}</p>
           `
     async function obtenerInformacionDeLote(idLote){
-        const response = await fetch(`${serverUrls.transito}/api/v1/lote/${idLote}`)
+        const response = await fetch(`https://localhost:8003/api/v1/lote/${idLote}`)
         return await response.json()
     }
 }
