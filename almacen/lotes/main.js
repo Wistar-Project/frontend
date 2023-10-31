@@ -44,8 +44,8 @@ document.querySelector('form')
         headers: {
             "Content-Type": "application/json" , 
             "Authorization":`Bearer ${getCookie("token")}`,   
+        },
         body: JSON.stringify(data)
-        }
         })
     .then(function(response){
         if(response.ok){
