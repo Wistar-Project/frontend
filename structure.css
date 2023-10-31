@@ -50,8 +50,8 @@ header{
 
 header.activar{
     opacity: 0.7;
-    position: fixed;
-    z-index: 200;
+    position: sticky;
+    z-index: 500;
     box-shadow: 1px 1px 6px gray;
     transform: scale(0.8);
 }
