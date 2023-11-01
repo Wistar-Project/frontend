@@ -1,4 +1,5 @@
-
+import { getCookie } from '../../utils/cookieHelper.js'
+import { serverUrls } from '../../utils/consts.js' 
 
 document.getElementById('boton-buscar').addEventListener('click', function(){
     const form=document.getElementById('container-buscar');
@@ -38,7 +39,8 @@ document.querySelector('form')
         new FormData(e.target)
     )
     console.log(JSON.stringify(data))
-    mostrarInformacionDeLote(data)
+    var id = data.id
+    mostrarInformacionDeLote(id)
 })
 
 const loteInfo = document.getElementById("informacion")
@@ -50,7 +52,7 @@ async function mostrarInformacionDeLote(idLote){
         conductorAsignado, 
         destino 
     } = await obtenerInformacionDeLote(idLote)
-
+    
     loteInfo.innerHTML = `
         <legend>Información</legend>
         <br>
@@ -65,7 +67,25 @@ async function mostrarInformacionDeLote(idLote){
         <p>Destino: ${destino}</p>
           `
     async function obtenerInformacionDeLote(idLote){
-        const response = await fetch(`https://localhost:8003/api/v1/lote/${idLote}`)
+        const response = await fetch(`${serverUrls.transito}/api/v1/lote/${idLote}`,{
+            headers : {
+                "Content-Type": "application/json" , 
+                "Authorization":`Bearer ${getCookie("token")}`,   
+            }
+        }
+        )
+        .then(function(response){
+            if(!response.ok){
+                const alerta = document.createElement('div')
+                alerta.textContent = 'El lote no esta activo'
+                alerta.className= 'alerta'
+                document.body.appendChild(alerta)
+                setTimeout(function(){
+                    alerta.style.display = 'none'
+                },3500)
+
+            }
+        })
         return await response.json()
     }
 }
