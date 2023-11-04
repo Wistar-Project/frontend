@@ -343,13 +343,14 @@ fieldset{
  .container-crear.mostrar{
     width: 100%;
     top: 160px;
+    height: 650px;
  }
  .informacion{
     font-size: 18px;
     height: 350px;
  }
  .container-crear.mostrar form input ,.container-crear.mostrar form select {
-    width: 250px;
+    width:  100%;
     height: 40px;
  }
  #boton-crear{
