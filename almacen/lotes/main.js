@@ -1,13 +1,59 @@
 import  {serverUrls}from '../../utils/consts.js'
 import { getCookie } from '../../utils/cookieHelper.js';
 
+const paquetesPorAsignar = new Set()
+
 const destinoSelector = document.getElementById("destino-selector")
+
+function limpiarPaquetes(){
+    document.getElementById('agregar-paquetes').innerHTML = ""
+}
+
 destinoSelector.addEventListener('change', () => {
-    obtenerYMostrarLotes()
+    paquetesPorAsignar.clear()
+    limpiarPaquetes()
+    obtenerYMostrarPaquetesConMismoDestino()
 })
+
+async function obtenerYMostrarPaquetesConMismoDestino(){
+    const paquetes = await obtenerPaquetes()
+    console.log(paquetes)
+    mostrarPaquetes(paquetes)
+    async function obtenerPaquetes(){
+        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes/asignar/${destinoSelector.value}`,
+        {
+            headers:{
+                "Authorization":`Bearer ${getCookie("token")}`
+            }
+        })
+        return await response.json()
+    }
+
+    function mostrarPaquetes(paquetes){
+        paquetes.map(paquete => {
+            const button = document.createElement('button')
+            button.textContent = paquete
+            button.className = "paqueteBoton"
+            button.addEventListener('click', e => {
+                e.preventDefault()
+                button.style.backgroundColor = "#73b094"
+                button.style.border = "1px solid #fff"
+                paquetesPorAsignar.add(paquete)
+                console.log(paquetesPorAsignar)
+            })
+            button.classList.toggle('paquetes-creados')
+            button.style.cursor = "pointer"
+            button.style.margin = "20px"
+            paquetesContainer.appendChild(button)
+            
+        })
+    }
+
+}
 
 mostrarDestinos()
     .then(() => {
+        obtenerYMostrarPaquetesConMismoDestino()
         obtenerYMostrarLotes()
     })
 async function mostrarDestinos(){
@@ -60,6 +106,23 @@ document.getElementById('close').addEventListener('click' , function(){
     footer.style.filter = 'grayscale(0)'
 })
 
+async function asignarPaquetes(response){
+    const lote = await response.json()
+    paquetesPorAsignar.forEach(paquete => {
+        fetch(`${serverUrls.almacenes}/api/v1/lotes/asignar`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json" , 
+                "Authorization":`Bearer ${getCookie("token")}`, 
+            },
+            body: JSON.stringify({
+                lote: lote.id,
+                paquete: paquete
+            })
+        })
+    })    
+}
+
 document.querySelector('form')
 .addEventListener('submit', e =>{
     e.preventDefault()
@@ -77,6 +140,7 @@ document.querySelector('form')
         })
     .then(function(response){
         if(response.ok){
+            asignarPaquetes(response)
             const divAlerta = document.createElement('div')
             divAlerta.className = 'alerta-creada'
             divAlerta.textContent = "Lote creado con exito"
@@ -149,11 +213,9 @@ async function mostrarInformacionDeLote(idLote){
     const { 
         pesoEnKg, 
         camionAsignado, 
-        fechaModificacion, 
         direccionDestino, 
         cantidadPaquetes 
     } = await obtenerInformacionDeLote(idLote)
-
     loteInfo.innerHTML = `
         <legend>Información</legend>
         <br>
@@ -165,8 +227,6 @@ async function mostrarInformacionDeLote(idLote){
         <p>Vehiculo asignado: ${camionAsignado}</p>
        
         </div>
-        <br>
-        <p>Fecha de modificación: ${fechaModificacion}</p>
         <br>
         <p>Dirección destino: ${direccionDestino}</p>
         <br>
@@ -201,36 +261,5 @@ let doc = parser.parseFromString(svgCode,"image/svg+xml");
 
 const paquetesContainer = document.getElementById('agregar-paquetes')
 
-async function obtenerYMostrarPaquetes(){
-    const paquetes= await obtenerPaquetes()
-    mostrarPaquetes(paquetes)
 
-    async function obtenerPaquetes(){
-        const response = await fetch(`${serverUrls.almacenes}/api/v1/paquetes`,
-        {
-            headers:{
-                "Authorization":`Bearer ${getCookie("token")}`
-            }
-        })
-        return await response.json()
-    }
 
-    function mostrarPaquetes(paquetes){
-        paquetes.map(paquete => {
-            const button = document.createElement('button')
-            button.textContent = paquete.id
-            button.className = "paqueteBoton"
-            button.addEventListener('click', function() {
-                mostrarInformacionDePaquete(paquete.id)
-            })
-            paquetesContainer.appendChild(button)
-            paquetesContainer.appendChild(button).classList.toggle('paquetes-creados')
-            paquetesContainer.appendChild(button).style.cursor = "pointer"
-            paquetesContainer.appendChild(button).style.margin = "20px"
-            paquetesContainer.appendChild(button).style.width1 = "100%"
-            
-        })
-    }
- 
-}
-obtenerYMostrarPaquetes()
