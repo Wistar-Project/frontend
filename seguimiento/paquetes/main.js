@@ -1,5 +1,12 @@
 import { serverUrls } from '../../utils/consts.js'
 import { getCookie } from '../../utils/cookieHelper.js' 
+
+const queryString = new URLSearchParams(window.location.search)
+const paqueteAMostrar = queryString.get('id')
+if(paqueteAMostrar){
+    mostrarInformacionDePaquete(paqueteAMostrar)
+}
+
 document.getElementById('boton-buscar').addEventListener('click', function(){
     const form=document.getElementById('container-buscar');
     form.classList.toggle('mostrar');
@@ -84,7 +91,7 @@ async function mostrarInformacionDePaquete(id){
       `
       paqueteInfo.style.height = '390px'
     if(loteAsignado)
-        paqueteInfo.innerHTML = paqueteInfo.innerHTML + `<br>
+        paqueteInfo.innerHTML = paqueteInfo.innerHTML + `
         <p>Lote asignado: ${loteAsignado} </p>`
     async function obtenerInformacionDePaquete(id){
         console.log(serverUrls.transito)

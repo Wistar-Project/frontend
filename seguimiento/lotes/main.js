@@ -40,30 +40,43 @@ document.querySelector('form')
     )
     console.log(JSON.stringify(data))
     var id = data.id
-    mostrarInformacionDeLote(id)
+    mostrarInformacionDeLoteYPaquetesAsignados(id)
 })
+
+async function mostrarPaquetesAsignados(paquetes){
+    const paquetesContainer = document.getElementById('paquetes-asignados-container')
+    paquetes.map(paquete => {
+        console.log(paquete)
+        const button = document.createElement('button')
+        button.textContent = paquete
+        button.className = "loteBoton"
+        button.addEventListener('click', function() {
+            window.location.href = `/seguimiento/paquetes/?id=${paquete}`
+        })
+        button.classList.toggle('paquetes-creados')
+        button.style.cursor = "pointer"
+        button.style.margin = "20px"
+        paquetesContainer.appendChild(button)  
+    })
+}
 
 const loteInfo = document.getElementById("informacion")
 
-async function mostrarInformacionDeLote(idLote){
+async function mostrarInformacionDeLoteYPaquetesAsignados(idLote){
     const { 
         estado, 
         camionAsignado, 
-        conductorAsignado, 
-        destino 
+        conductor, 
+        destino,
+        paquetes
     } = await obtenerInformacionDeLote(idLote)
-    
+    mostrarPaquetesAsignados(paquetes)
     loteInfo.innerHTML = `
-        <legend>Información</legend>
-        <br>
-        <p> Id del lote: ${idLote}</p>
-        <br>
-        <p> estado: ${estado}</p>
-        <br>
-        <p>Vehiculo asignado: ${camionAsignado}</p>
-        <br>
-        <p>Conductor a cargo: ${conductorAsignado}</p>
-        <br>
+        <legend>Información del lote</legend>
+        <p>Id del lote: ${idLote}</p>
+        <p>Estado: ${estado}</p>
+        <p>Camión asignado: ${camionAsignado}</p>
+        <p>Conductor a cargo: ${conductor}</p>
         <p>Destino: ${destino}</p>
           `
     async function obtenerInformacionDeLote(idLote){
@@ -74,18 +87,16 @@ async function mostrarInformacionDeLote(idLote){
             }
         }
         )
-        .then(function(response){
-            if(!response.ok){
-                const alerta = document.createElement('div')
-                alerta.textContent = 'El lote no esta activo'
-                alerta.className= 'alerta'
-                document.body.appendChild(alerta)
-                setTimeout(function(){
-                    alerta.style.display = 'none'
-                },3500)
-
-            }
-        })
+        if(!response.ok){
+            const alerta = document.createElement('div')
+            alerta.textContent = 'El lote no está asignado a un vehículo'
+            alerta.className= 'alerta'
+            document.body.appendChild(alerta)
+            setTimeout(function(){
+                alerta.style.display = 'none'
+            },3500)
+            throw "No asignado a camión"
+        }
         return await response.json()
     }
 }

@@ -220,3 +220,18 @@ fieldset{
     top: 200px;
    }
 }
+
+.paquetes-creados{
+    font-size: 40px;
+    font-family: var(--font-texto);
+    color: #fff;
+    font-family: var(--font-texto);
+    background-color: var(--boton-secundario);
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    box-shadow: 3px 3px 3px #000;
+}
