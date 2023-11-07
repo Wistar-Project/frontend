@@ -102,6 +102,16 @@ async function mostrarInformacionDePaquete(id){
             }
         }
         )
+        if(!response.ok){
+            const alerta = document.createElement('div')
+            alerta.textContent = 'El paquete no está asignado a un vehículo o no existe'
+            alerta.className= 'alerta'
+            document.body.appendChild(alerta)
+            setTimeout(function(){
+                alerta.style.display = 'none'
+            },3500)
+            throw "Paquete no asignado a vehículo o inexistente"
+        }
         return await response.json()
     }
 }

@@ -89,7 +89,7 @@ async function mostrarInformacionDeLoteYPaquetesAsignados(idLote){
         )
         if(!response.ok){
             const alerta = document.createElement('div')
-            alerta.textContent = 'El lote no está asignado a un vehículo'
+            alerta.textContent = 'El lote no está asignado a un camión o no existe'
             alerta.className= 'alerta'
             document.body.appendChild(alerta)
             setTimeout(function(){
