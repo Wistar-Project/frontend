@@ -17,12 +17,8 @@
     padding-top: 20px;
 }
 
-fieldset{
-    width: 50%;
-    height: 400px;
-    border-radius: 10px;
-    border: 2px dashed #fff;
-    background-color: var(--acento);
+#input-container{
+    border-left: 2px dashed #fff;
     font-family: var(--font-texto);
     display: flex;
     flex-direction: column;
@@ -31,7 +27,45 @@ fieldset{
     gap: 20px;
 }
 
-fieldset div{
+fieldset{
+    border-radius: 10px;
+    width: 50%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--acento);
+    box-shadow: 12px 12px 12px black;
+}
+
+#left-side-image{
+    background-image: url("../img/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#left-side-image > div > h3{
+    font-family: var(--font-titulo);
+    font-size: 60px;
+    text-align: center;
+    position: relative;
+    bottom: 120px;    
+}
+
+#left-side-image > div > p{
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    position: relative;
+    bottom: -120px;
+}
+
+fieldset .flex{
     display: flex;
     flex-direction: column;
 }
@@ -40,6 +74,20 @@ input{
     color: #000;
     font-family: var(--font-texto);
     font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #585;
+    color: #fff;
+    border: 1px solid #fff
+}
+
+input::placeholder{
+    color: #ddd
+}
+
+label{
+    font-size: 20px;
+    font-weight: 800;
 }
 
 button{
@@ -49,7 +97,48 @@ button{
     background-color: var(--boton-principal);
     border-radius: 10px;
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid #fff;
     outline: none;
     padding: .5rem 1.5rem;
+    transition: 0.2s background-color;
+}
+
+button:hover{
+    background-color: #215435;
+}
+
+#error-container{
+    display: none;
+}
+
+#error-container img{
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes mostrarMensajeError{
+    from { right: -1000px; }
+    to { right: 10px; }
+}
+
+#error-container.mostrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-texto);
+    gap: 10px;
+    padding: 10px;
+    position: fixed;
+    border-radius: 10px;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--boton-principal);
+    animation-name: mostrarMensajeError;
+    animation-duration: 1s;
+}
+
+#show-pass-label{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }

@@ -16,7 +16,6 @@ export function setCookie(name, value, expirationDays) {
 export function getCookie(cname) {
     let name = cname + "="
     let decodedCookie = decodeURIComponent(document.cookie)
-    console.log(decodedCookie)
     let ca = decodedCookie.split(';')
     for(let i = 0; i < ca.length; i++) {
       let c = ca[i]
@@ -30,3 +29,8 @@ export function getCookie(cname) {
     return ""
 }
 
+export function deleteCookie(name){
+  setCookie(name, "", "Thu, 01 Jan 1970 00:00:00 UTC")
+}
+
+window.deleteCookie = deleteCookie

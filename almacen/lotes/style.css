@@ -9,7 +9,9 @@
     --boton-secundario: #253e41;
     --acento: #172620
 }
-
+*{
+    user-select: none;
+}
 html{
     animation-name: intro;
     animation-duration: .6s;
@@ -26,11 +28,12 @@ html{
 
 header.activar{
     opacity: 0.7;
-    z-index: 999;
+    z-index: 950;
     box-shadow: 1px 1px 6px gray;
     transform: scale(0.8);
     position: sticky;
 }
+<<<<<<< HEAD
 .boton{
     position: absolute;
     top: 70px;
@@ -162,56 +165,301 @@ fieldset{
     top: 10px;
 }
 .scroll{
+=======
+/* MAIN */
+main{
+>>>>>>> 7b419941dbd8c740e2f2198c5a66697e34948fb9
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+fieldset{
+    border: none;
+    box-shadow: 1px 1px 3px black;
+    font-size: 25px;
+}
+.lotes{
+    width: 600px;
+    height: 480px;
     overflow: hidden;
     overflow-y: scroll;
 }
-.asignar{
-    font-size: 20px;
-    display: none;
-    width: 350px;
-    height: 450px;
-    position: absolute;
-    top: 15%;
-    left: 35%;
-    background-color: var(--boton-secundario);
+.informacion{
+    width: 550px;
+    height: 480px;
 }
-.asignar.ver{
-    animation-name: ver;
-    animation-duration: .6s;
-    animation-fill-mode: forwards;
+#boton-crear{
+    width: 100px;
+    height: 30px;
+    background-color: var(--boton-principal);
+    font-family: var(--font-texto);
+    color: white;
+    font-size: 25px;
+    position: fixed;
+    right: 30px;
+    top: 80px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+#boton-crear:hover{
+    transition: .3s;
+    transform: scale(1.03);
+    background-color: #446451;
+}
+.volver{
+    width: 100px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    background-color: var(--boton-principal);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    left: 20px;
+    font-family: var(--font-texto);
+    top: 80px;
+    user-select: none;
 }
-@keyframes ver {
+.volver:hover{
+    transition: all .3s;
+    transform: scale(1.03);
+}
+.crear{
+    width: 360px;
+    height: 450px;
+    background-color: var(--boton-secundario);
+    border: 1px solid black;
+    position:absolute;
+    margin: 0 auto;
+    display: none;   
+}
+.crear svg{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.crear.mostrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: ver forwards .2s ;
+
+}
+@keyframes ver{
     0%{
-        opacity: 0.1;
+        scale: 0;
     }
     100%{
-        opacity: 0.95;
+        scale: 1;
     }
 }
-.scrolldos{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: scroll; 
+#container-asignar{
+    width: 360px;
+    height: 450px;
+    background-color: var(--boton-secundario);
+    border: 1px solid black;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 300;
+    display: none;   
 }
-.vehiculos{
-    width: 70%;
-    position: relative;
-    height: 300px;
-    left: 50px;
+#container-asignar.ver{
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    top:0;
+    animation: asignar .3s forwards;
 }
-form select{
-    background-color: var(--fondo);
+@keyframes asignar{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+#cerrar{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+#crear-lote{
     width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 110px;
+    background-color: var(--boton-principal);
+    font-family: var(--font-texto);
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+#crear-lote:hover{
+    transition: .3s;
+    background-color: #4d6958;
+    transform: scale(1.03);
+}
+.crear.mostrar > form{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.agregar-paquetes{
+    width: 90%;
+    height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: var(--boton-principal);
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+select{
+    width: 220px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left:30px;
+    background-color: var(--boton-principal);
+    border: 1px solid black;
+}
+.lotes-creados{
+    font-size: 40px;
+    font-family: var(--font-texto);
+}
+.informacion svg{
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.informacion > div{
+    display: flex;
+    flex-direction: row;
+}
+.alerta-creada{
+    font-size: 35px;
+    font-family: var(--font-texto);
+    background-color: green;
+    width: 100%;
+    position: sticky;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    animation-name: passed;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+@keyframes passed {
+    0%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.alerta-error{
+    font-size: 35px;
+    font-family: var(--font-texto);
+    background-color: red;
+    width: 100%;
+    position: sticky;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px black;
+    animation-name: error;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+@keyframes error{
+    0%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.loteBoton{
+    color: #fff;
+    font-family: var(--font-texto);
+    background-color: var(--boton-secundario);
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    box-shadow: 5px 5px 5px #000;
+}
+.loteBoton:hover{
+    transition: all ease-in .3s;
+    background-image:linear-gradient(#2f4437, #3e7a54) ;
+}
+
+.loteBoton:focus{
+    background-color: orange;
+}
+.paqueteBoton{
+    color: #fff;
+    font-family: var(--font-texto);
+    background-color: var(--boton-secundario);
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    box-shadow: 5px 5px 5px #000;
+}
+
+.paqueteBoton:hover{
+    background-image:linear-gradient(var(--boton-principal), var(--boton-secundario)) ;
+}
+
+.paqueteBoton:focus{
+    background-color: orange;
+}
+/* RESPONSIVE */
+@media (max-width:500px){
+    .crear.mostrar{
+        width: 100%;
+        margin: 0;
+        top: 80px;
+        height: 45%;
+    }
+    #crear-lote{
+        margin-left: 90px;
+    }
+    #container-asignar.ver{
+        width: 100%;
+    }
+}
+@media (max-width:350px){
+    .informacion{
+        font-size: 16px;
+        height: 350px;
+    }
 }
