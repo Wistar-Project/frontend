@@ -73,22 +73,6 @@ document.querySelector('form')
 
 const paqueteInfo = document.getElementById("informacion")
 
-function mostrarMapa(destino){
-    const mapaContenedor = document.getElementById('mapa-contenedor')
-    mapaContenedor.innerHTML = `
-        <iframe
-            width="490px"
-            height="390px"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDpUoy6VuYXwuO7qHE7CR3P84UHgiEdV68 
-                &q=${destino}">
-        </iframe>
-    `
-}
-
 async function mostrarInformacionDePaquete(id){
     const { 
         destino,
@@ -98,9 +82,6 @@ async function mostrarInformacionDePaquete(id){
         estado,
         loteAsignado
     } = await obtenerInformacionDePaquete(id)
-
-    mostrarMapa(destino)
-
     paqueteInfo.innerHTML = `
     <p> Id del paquete: ${paqueteId}</p>
     <p> Estado: ${estado}</p>
