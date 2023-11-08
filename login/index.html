@@ -4,60 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoTruck</title>
+    <title data-text-id="1">GoTruck - Iniciar sesión</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
     <script src="../headerAnimation.js" defer></script>
     <script src="loginHandler.js" defer type="module"></script>
+    <script src="/changeLanguage.js" defer type="module"></script>
+    <script src="/utils/updateText.js" defer type="module"></script>
 </head>
 <body>
+    <div id="error-container">
+        <img src="/img/error.png" alt="Error">
+        <p data-text-id="304">Ha ocurrido un error. Revise los campos por favor.</p>
+    </div>
     <header>
         <a href="/">
             <div class="logo">
-                    <img src="../../img/logo.png" alt="logo" class="logo-app">
+                    <img src="/img/logo.png" alt="logo" class="logo-app">
                     <h1>GoTruck</h1>
             </div>
         </a>
         <div class="menu">
             <ul class="nav">
-                <li><a href="#"><img src="../../img/espana.png" class="bandera" alt="Español"><a class="bandera-reino-unido" href="#"><img src="../../img/reino-unido.png" class="bandera" alt="Inglés"></a><img src="../../img/caret-abajo.png" class="flecha" alt="Abrir menú"></a>
-                <ol>
-                    <li><a href="#"><img src="../../img/reino-unido.png" class="bandera" alt="Inglés"></a></li>
-                </ol>
-            </li>
-            
+                <li>
+                    <img src="/img/espana.png" class="bandera" alt="Español" id="bandera-actual">
+                    <img src="/img/caret-abajo.png" class="flecha" alt="Abrir menú">
+                    <ol>
+                        <li>
+                            <img src="/img/reino-unido.png" class="bandera" alt="Inglés" id="bandera-siguiente">
+                        </li>
+                    </ol>
+                </li>
             </ul>
-                <img src="../../img/avatar.png" alt="login" class="avatar-login">
+            </ul>
+                <img src="/img/avatar.png" alt="login" class="avatar-login">
         </div>    
     </header>
-    <h3 id="titulo">Iniciar sesión</h3>
+    <h3 id="titulo" data-text-id="300">Iniciar sesión</h3>
     <main>
         <fieldset>
-            <legend>Datos para el inicio de sesión</legend>
-            <div>
-                <label for="email">Email:</label>
-                <input type="text" placeholder="admin@gotruck.com" id="email">
+            <legend data-text-id="301">Datos para el inicio de sesión</legend>
+            <div id="left-side-image">
+                <div>
+                    <h3>GoTruck</h3>
+                    <p data-text-id="302">Inicie sesión para acceder al sitio.</p>
+                </div>
             </div>
-            <div>
-                <label for="contra">Contraseña:</label>
-                <input type="password" placeholder="1234" id="contra">
-            </div>
-            <button id="iniciar-sesion-btn">Iniciar sesión</button>
+            <form id="input-container">
+                <div class="flex">
+                    <label for="email">Email:</label>
+                    <input type="text" placeholder="usuario@gotruck.com" name="username" id="email">
+                </div>
+                <div class="flex">
+                    <label for="contra"><span data-text-id="303">Contraseña</span>:</label>
+                    <input type="password" placeholder="1234" name="password" id="contra">
+                </div>
+                <div>
+                    <input type="checkbox" name="" id="show-pass-btn">
+                    <label id="show-pass-label" for="show-pass-btn">Mostrar contraseña</label>
+                </div>
+                </div>
+                <button id="iniciar-sesion-btn" type="submit" data-text-id="300">Iniciar sesión</button>
+            </form>
         </fieldset>
     </main>
     <footer>
-        <div class="flex-container">
-            <a href="#">Política y privacidad</a>
-            <a href="#">Contacto</a>
+      
+            <a href="#" data-text-id="200">Política y privacidad</a>
+            <p id="copyright">© GoTruck 2023 - <span data-text-id="202">Todos los derechos reservados</span></p>
             <div id="logo-nombre">
                 <h3 id="titulo-footer">GoTruck</h3>
-                <img src="../../img/logo.png" alt="logo" class="logo-app" id="logo-footer">
+                <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
             </div>
-        </div>
-        <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+       
     </footer>
 </body>
 </html>
