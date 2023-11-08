@@ -9,6 +9,17 @@
     --boton-secundario: #253e41;
     --acento: #172620
 }
+html{
+    animation: entrada forwards .5s;
+}
+@keyframes entrada{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale:1;
+    }
+}
 main{
     width: 100%;
     height: 100%;
@@ -57,15 +68,20 @@ fieldset{
     box-shadow: 1px 1px 3px black;
     font-size: 25px;
     font-family: var(--font-texto);
-    background-color: var(--boton-principal);
+    background-color: var(--boton-secundario);
 }
 #entregas{
     width: 680px;
     height: 480px;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 #mapa{
     width: 550px;
     height: 480px;
+    justify-content:center;
+    align-items: center;
 }
 #mostrar-pendientes{
     min-width: 100px;
@@ -109,4 +125,27 @@ fieldset{
     transition: .3s;
     transform: scale(1.03);
     background-color:#4d705a;
+}
+#entregas > input{
+display: none;
+}
+#uno{
+    width: 80%;
+    height:  45px;
+    background-color: var(--boton-principal);
+    font-size: 25px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: var(--font-texto);
+    cursor: pointer;
+}
+#entrega{
+    width: 45px;
+    height: 45px;
+    border: 1px solid black;
+    background-color: var(--boton-principal);
+    border-radius: 10px;
+    margin: 20px;
+    cursor: pointer;
 }
