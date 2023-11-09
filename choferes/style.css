@@ -134,7 +134,6 @@ display: none;
     height:  45px;
     background-color: var(--boton-principal);
     font-size: 25px;
-    text-align: center;
     margin: 5px;
     border-radius: 10px;
     font-size: var(--font-texto);
@@ -148,4 +147,29 @@ display: none;
     border-radius: 10px;
     margin: 20px;
     cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:720px){
+    .volver{
+        top: 130px;
+    }
+    #mostrar-pendientes , #mostrar-todos{
+        top: 130px;
+    }
+}
+@media (max-width:520px){
+    .volver{
+        left: 40%;
+    }
+    #mostrar-pendientes , #mostrar-todos{
+        min-width: 100px;
+        top: 200px;
+        right: 20%;
+    }
+    #uno{
+        width: 65%;
+        font-size: 25px;
+    }
 }
