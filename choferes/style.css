@@ -138,6 +138,9 @@ display: none;
     border-radius: 10px;
     font-size: var(--font-texto);
     cursor: pointer;
+    text-align: left;
+    padding-left: 10px;
+    border: 1px solid #000;
 }
 #entrega{
     width: 45px;
@@ -145,7 +148,6 @@ display: none;
     border: 1px solid black;
     background-color: var(--boton-principal);
     border-radius: 10px;
-    margin: 20px;
     cursor: pointer;
 }
 
@@ -172,4 +174,11 @@ display: none;
         width: 65%;
         font-size: 25px;
     }
+}
+
+.entrega{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
