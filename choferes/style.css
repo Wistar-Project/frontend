@@ -73,11 +73,13 @@ fieldset{
 #entregas{
     width: 680px;
     height: 480px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     overflow-y: scroll;
+    gap: 5px;
 }
-#mapa{
+#mapa-o-descargas-container{
     width: 550px;
     height: 480px;
     justify-content:center;
@@ -129,26 +131,26 @@ fieldset{
 #entregas > input{
 display: none;
 }
-#uno{
+.boton-ver-descargas{
     width: 80%;
     height:  45px;
     background-color: var(--boton-principal);
     font-size: 25px;
-    margin: 5px;
-    border-radius: 10px;
+    border-radius: 30px;
     font-size: var(--font-texto);
     cursor: pointer;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 20px;
     border: 1px solid #000;
 }
-#entrega{
-    width: 45px;
+.boton-entregar{
     height: 45px;
+    width: 45px;
     border: 1px solid black;
     background-color: var(--boton-principal);
     border-radius: 10px;
     cursor: pointer;
+    background-size: cover;
 }
 
 /* RESPONSIVE */
@@ -176,7 +178,7 @@ display: none;
     }
 }
 
-.entrega{
+.entrega-container{
     display: flex;
     justify-content: center;
     align-items: center;

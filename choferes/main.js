@@ -9,12 +9,17 @@ todos.addEventListener('click', function(){
     pendientes.style.display='flex'
 })
 
-const checkPersonalizado = document.getElementById('entrega')
-const check = document.getElementById('check')
-const listo = document.getElementById('listo')
-var activado =false
+const botonesDeEntrega = document.querySelectorAll('.boton-entregar')
+
+botonesDeEntrega.forEach(boton => {
+    boton.addEventListener('click', () => {
+        boton.style.backgroundImage = "url(/img/checkmark.png)"
+    })
+})
+
+
+/*
 checkPersonalizado.addEventListener('click',function(){
-    activado = !activado
     if(activado){
         check.checked = true
         listo.style.display ='block'   
@@ -24,16 +29,18 @@ checkPersonalizado.addEventListener('click',function(){
 
     }
     })
-    const mapaContenedor = document.getElementById('mapa')
-    mapaContenedor.innerHTML = `
-        <iframe
-            width="90%"
-            height="90%"
-            style="border:0;margin:25px"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDpUoy6VuYXwuO7qHE7CR3P84UHgiEdV68 
-                &q=esi-buceo">
-        </iframe>
-        `
+    
+*/
+const mapaContenedor = document.getElementById('mapa-o-descargas-container')
+mapaContenedor.innerHTML = `
+<iframe
+    width="90%"
+    height="90%"
+    style="border:0;margin:25px"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDpUoy6VuYXwuO7qHE7CR3P84UHgiEdV68 
+        &q=esi-buceo">
+</iframe>
+`
