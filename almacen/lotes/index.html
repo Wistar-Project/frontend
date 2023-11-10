@@ -39,43 +39,43 @@
             <div id="opciones-usuario">
                 <div id="boton-cerrar-sesion">
                     <img src="/img/cerrar-sesion.png" alt="Salir">
-                    <p>Cerrar sesión</p>
+                    <p data-text-id="100">Cerrar sesión</p>
                 </div>
             </div>  
         </div>    
     </header>
-    <a href="javascript:history.back()" id="volver" class="volver boton"> 
+    <a href="javascript:history.back()" id="volver" class="volver boton" data-text-id="415"> 
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
             <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
           </svg>
         Volver</a>
-        <button type="button" class="boton" id="boton-crear">Crear</button>
+        <button type="button" class="boton" id="boton-crear" data-text-id="416">Crear</button>
     <main> 
         <fieldset class="lotes" id="lotes">
-            <legend>Lotes</legend>
+            <legend data-text-id="417">Lotes</legend>
         </fieldset>
         <fieldset class="informacion" id="informacion">
-            <legend>Información</legend>
+            <legend data-text-id="418">Información</legend>
             <br>
-            <p> Id del lote:</p>
+            <p data-text-id="419"> Id del lote:</p>
             <br>
-            <p> Peso (kg):</p>
+            <p data-text-id="420"> Peso (kg):</p>
             <br>
-            <p>Vehiculo asignado:</p>
+            <p data-text-id="421"> Vehiculo asignado:</p>
             <br>
-            <p>Dirección destino:</p>
+            <p data-text-id="422">Dirección destino:</p>
             <br>
-            <p>Cantidad de paquetes:</p>
+            <p data-text-id="423">Cantidad de paquetes:</p>
         </fieldset>
         <fieldset class="crear" id="container-crear">
-            <legend>Crear lote</legend>
+            <legend data-text-id="424">Crear lote</legend>
             <svg id="close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
               </svg>
             <form action="#">
-                <label for="destino">Destino</label><select name="destino" id="destino-selector">
+                <label for="destino" data-text-id="425">Destino</label><select name="destino" id="destino-selector">
                 </select>
-                <label for="">Paquetes a agregar</label>
+                <label for="" data-text-id="426">Paquetes a agregar</label>
                 <div class="agregar-paquetes" id="agregar-paquetes">
 
                 </div>
@@ -83,19 +83,20 @@
             </form>
         </fieldset>
         <fieldset id="container-asignar">
-            <legend>Asignar</legend>
+            <legend data-text-id="427">Asignar</legend>
             <svg id="cerrar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
               </svg>
         </fieldset>
     </main>
     <footer>
-            <a href="#">Política y privacidad</a>
-            <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
-            <div id="logo-nombre">
-                <h3 id="titulo-footer">GoTruck</h3>
-                <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
-            </div>
+        <a href="#" data-text-id="200">Política y privacidad</a>
+        <p id="copyright">© GoTruck 2023 - <span data-text-id="202">Todos los derechos reservados</span></p>
+        <div id="logo-nombre">
+            <h3 id="titulo-footer">GoTruck</h3>
+            <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
+        </div>
+    </div>
     </footer>
 </body>
 </html>

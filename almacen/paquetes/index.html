@@ -39,55 +39,55 @@
             <div id="opciones-usuario">
                 <div id="boton-cerrar-sesion">
                     <img src="/img/cerrar-sesion.png" alt="Salir">
-                    <p>Cerrar sesión</p>
+                    <p data-text-id="100">Cerrar sesión</p>
                 </div>
             </div>  
         </div>    
     </header>
-    <a href="javascript:history.back()" id="volver" class="volver"> 
+    <a href="javascript:history.back()" id="volver" class="volver" data-text-id="415"> 
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
             <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
           </svg>
         Volver</a>
-    <button type="button" id="boton-crear">Crear</button>
+    <button type="button" id="boton-crear" data-text-id="416">Crear</button>
     <main>  
         <fieldset class="paquetes" id="paquetes" >
-            <legend>Paquetes</legend>
+            <legend data-text-id="428">Paquetes</legend>
         </fieldset>
         <fieldset class="informacion" id="informacion">
-            <legend>Información</legend>
+            <legend data-text-id="418">Información</legend>
             <br>
-            <p>Id del paquete:</p>
+            <p data-text-id="429">Id del paquete:</p>
             <br>
-            <p>Vehiculo asignado:</p>
+            <p data-text-id="421">Vehiculo asignado:</p>
             <br>
-            <p>Peso (kg):</p>
+            <p data-text-id="420">Peso (kg):</p>
             <br>
-            <p>Fecha de modificación:</p>
+            <p data-text-id="430">Fecha de modificación:</p>
             <br>
-            <p>Dirección destino:</p>
+            <p data-text-id="422">Dirección destino:</p>
             <br>
-            <p>Lote asignado:</p>
+            <p data-text-id="431">Lote asignado:</p>
             <br>
             <p>Email:</p>
         </fieldset>
         <fieldset class="container-crear" id="container-crear">
-            <legend>Crear Paquetes</legend>
+            <legend data-text-id="432">Crear Paquetes</legend>
             <svg id="close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
               </svg>
             <form action="" method="post" >
-                <label for="peso">Peso(kg):</label> <input type="number" name="pesoEnKilogramos">
-                <label for="destino">Destino:</label>
+                <label for="peso" data-text-id="433">Peso(kg):</label> <input type="number" name="pesoEnKilogramos">
+                <label for="destino" data-text-id="425">Destino:</label>
                 <select name="destino" id="destino-selector"></select>
                 <br>
                 <label for="email">E-mail</label><input type="email" name="email">
-                <label for="">Lotes para asignar</label><div id="lotes"></div>
+                <label for="" data-text-id="434">Lotes para asignar</label><div id="lotes"></div>
                 <input type="submit" value="Crear" id="crear-paquete">
             </form>
         </fieldset>
         <fieldset id="container-asignar">
-            <legend>Asignar</legend>
+            <legend data-text-id="427">Asignar</legend>
             <svg id="cerrar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
               </svg>
@@ -95,13 +95,13 @@
    
     </main>
     <footer>
-       
-            <a href="#">Política y privacidad</a>
-            <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+        <a href="#" data-text-id="200">Política y privacidad</a>
+            <p id="copyright">© GoTruck 2023 - <span data-text-id="202">Todos los derechos reservados</span></p>
             <div id="logo-nombre">
                 <h3 id="titulo-footer">GoTruck</h3>
                 <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
             </div>
+        </div>
     </footer>
 </body>
 </html>
