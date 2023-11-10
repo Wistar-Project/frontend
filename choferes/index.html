@@ -52,20 +52,19 @@
         <button type="button" id="mostrar-pendientes">Mostrar solo pendientes</button>
         <button type="button" id="mostrar-todos">Mostrar todos</button>
     <main>
+    <div id="aviso" style="display:none">
+        <p id="felicidades">¡Felicidades!</p>
+        <p>No tienes entregas restantes por realizar.</p>
+    </div>
     <fieldset id="entregas">
         <legend>Entregas pendientes</legend>
-        <div class="entrega-container">
-            <button class="boton-entregar"></button>
-            <button class="boton-ver-descargas">Avenida brasil</button>
-        </div>
     </fieldset>
-    <fieldset >
+    <fieldset id="field-mapa-o-descargas">
         <legend>Mapa con ruta</legend>
         <div id="mapa-o-descargas-container"></div>
     </fieldset>
     </main>
     <footer>
-      
             <a href="#" data-text-id="200">Política y privacidad</a>
             <p id="copyright">© GoTruck 2023 - <span data-text-id="202">Todos los derechos reservados</span></p>
             <div id="logo-nombre">
