@@ -47,5 +47,7 @@ document.getElementById('boton-cerrar-sesion').addEventListener('click', () => {
     })
     deleteCookie('token')
     deleteCookie('name')
+    deleteCookie('rol')
+    deleteCookie('language')
     window.location.href = '/login'
 })
