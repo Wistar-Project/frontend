@@ -4,7 +4,7 @@ import { getCookie, setCookie } from "./utils/cookieHelper.js";
 const rol = await obtenerRol()
 if(rol === "funcionario") window.location.href = "almacen"
 if(rol === "conductor") window.location.href = "choferes"
-
+if(rol === "gerente" || rol === "administrador") document.getElementById('camion-container').style.display = "none"
 
 async function obtenerRol(){
     if(getCookie('rol')) return getCookie('rol')
