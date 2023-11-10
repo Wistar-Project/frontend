@@ -82,8 +82,11 @@ fieldset{
 #mapa-o-descargas-container{
     width: 550px;
     height: 480px;
+    display: flex;
     justify-content:center;
     align-items: center;
+    font-size: 40px;
+    font-weight: bolder;
 }
 #mostrar-pendientes{
     min-width: 100px;

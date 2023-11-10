@@ -12,23 +12,11 @@ todos.addEventListener('click', function(){
     pendientes.style.display='flex'
 })
 
-
-
-
-/*
-checkPersonalizado.addEventListener('click',function(){
-    if(activado){
-        check.checked = true
-        listo.style.display ='block'   
-    }else{
-        check.checked = false
-        listo.style.display = 'none'
-
-    }
-    })
-    
-*/
-
+function destinosRestantes(){
+    return Array.from(document.querySelectorAll('.boton-entregar')).filter(boton => {
+        return boton.style.backgroundImage !== 'url("/img/checkmark.png")'
+    }).length
+}
 
 async function obtenerDestinos(){
     const response = await fetch(`${serverUrls.transito}/api/v1/entregas`, {
@@ -37,7 +25,12 @@ async function obtenerDestinos(){
             Accept: "application/json"
         }
     })
+    if(!response.ok){
+        mostrarAvisoNadaPorHacer()
+        throw 'No tiene vehículo asignado'
+    }
     return await response.json()
+
 }
 
 mostrarDestinos(await obtenerDestinos())
@@ -47,15 +40,23 @@ function mostrarDestinos(destinos){
         const entregas = document.getElementById('entregas')
         entregas.innerHTML += `
             <div class="entrega-container">
-                <button class="boton-entregar" data-id-direccion="${destino.idDireccion}" ${destino.entregada && "style='background-image:url(/img/checkmark.png)'"}></button>
+                <button class="boton-entregar" data-direccion-id="${destino.idDireccion}" ${destino.entregada && "style='background-image:url(/img/checkmark.png)'"}></button>
                 <button class="boton-ver-descargas">${destino.direccion}</button>
             </div>
             `
     })
 
     document.querySelectorAll('.boton-entregar').forEach(boton => {
-        boton.addEventListener('click', () => {
+        boton.addEventListener('click', async () => {
+            if(boton.style.backgroundImage === 'url("/img/checkmark.png")') return
             boton.style.backgroundImage = "url(/img/checkmark.png)"
+            document.getElementById('mapa-o-descargas-container').innerHTML = "Actualizando mapa..."
+            if(destinosRestantes() === 0) {
+                mostrarAvisoNadaPorHacer()
+                document.getElementById('mapa-o-descargas-container').innerHTML = ""
+            }
+            await marcarComoEntregada(boton.dataset.direccionId)
+            mostrarMapa((await obtenerDestinos()).filter(destino => !destino.entregada))
         })
     })
     mostrarMapa(destinos.filter(destino => !destino.entregada))
@@ -99,4 +100,13 @@ function mostrarAvisoNadaPorHacer(){
     document.getElementById('entregas').style.filter = 'grayscale(1)'
     document.getElementById('mostrar-pendientes').style.filter = 'grayscale(1)'
     document.getElementById('field-mapa-o-descargas').style.filter = 'grayscale(1)'
+}
+
+async function marcarComoEntregada(idDireccion){
+   await fetch(`${serverUrls.transito}/api/v1/entregas/${idDireccion}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${getCookie('token')}`
+        }
+    })
 }
