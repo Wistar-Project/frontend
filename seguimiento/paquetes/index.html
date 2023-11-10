@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="/img/logo.png" type="image/png">
     <script src="../../headerAnimation.js" defer></script>
     <script src="../../accountAvatar.js" defer type="module"></script>
+    <script src="/changeLanguage.js" defer type="module"></script>
 </head>
 <body>
     <header>
@@ -25,11 +26,11 @@
         <div class="menu">
             <ul class="nav">
                 <li>
-                    <img src="/img/espana.png" class="bandera" alt="Español">
+                    <img src="/img/espana.png" class="bandera" alt="Español" id="bandera-actual">
                     <img src="/img/caret-abajo.png" class="flecha" alt="Abrir menú">
                     <ol>
                         <li>
-                            <img src="/img/reino-unido.png" class="bandera" alt="Inglés">
+                            <img src="/img/reino-unido.png" class="bandera" alt="Inglés" id="bandera-siguiente">
                         </li>
                     </ol>
                 </li>
@@ -87,14 +88,14 @@
     </main>
    
     <footer>
-       
-            <a href="#">Política y privacidad</a>
-            <p id="copyright">© GoTruck 2023 - Todos los derechos reservados</p>
+        <a href="#" data-text-id="200">Política y privacidad</a>
+            <p id="copyright">© GoTruck 2023 - <span data-text-id="202">Todos los derechos reservados</span></p>
             <div id="logo-nombre">
                 <h3 id="titulo-footer">GoTruck</h3>
                 <img src="/img/logo.png" alt="logo" class="logo-app" id="logo-footer">
             </div>
-        
+        </div>
+
     </footer>
     <script src="main.js" type="module"></script>
 </body>
