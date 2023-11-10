@@ -63,7 +63,7 @@ function mostrarDestinos(destinos){
 
 function mostrarMapa(destinos){
     if(destinos.length === 0) return mostrarAvisoNadaPorHacer()
-    console.log(obtenerWaypoints(destinos.map(destino => destino.direccion)))
+    const direccionDestinos = destinos.map(destino => destino.direccion)
     const mapaContenedor = document.getElementById('mapa-o-descargas-container')
     mapaContenedor.innerHTML = `
     <iframe
@@ -75,8 +75,8 @@ function mostrarMapa(destinos){
         referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyDpUoy6VuYXwuO7qHE7CR3P84UHgiEdV68
             &origin=Avenida General San Martín Dr Carlos Fosalba, Montevideo Departamento de Montevideo
-            &destination=${destinos[0]}
-            ${obtenerWaypoints(destinos)}"
+            &destination=${direccionDestinos[0]}
+            ${obtenerWaypoints(direccionDestinos)}"
     </iframe>
     `
 
