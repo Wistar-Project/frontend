@@ -1,0 +1,90 @@
+@import url("../structure.css");
+
+:root{
+    --font-titulo: 'Roboto Condensed', sans-serif;
+    --font-texto: 'Raleway', sans-serif;
+    --texto: #fff;
+    --fondo: #2b333b;
+    --boton-principal: #375643;
+    --boton-secundario: #253e41;
+    --acento: #172620
+}
+.titulo{
+    text-align: center;
+    font-size: 35px;
+    margin: 30px;
+    font-family: var(--font-titulo);
+}
+header > h2{
+    font-size: 30px;
+    color: white;
+    font-family: var(--font-titulo);
+}
+
+#texto {
+    font-size: 20px;
+    color: white;
+    font-family: var(--font-texto);
+}
+
+ul{
+    list-style: circle;
+    display: block;
+}
+
+.borde{
+    padding: 30px;
+    border: 1px solid #000000; 
+    width: 50%; 
+    min-height: 350px; 
+    background-color: #253e41;
+    border-radius: 10%; 
+    margin-top: 10px;
+}
+    
+
+.volver{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--boton-principal);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 3px black;
+    font-size: 20px;
+    color: white;
+    position: fixed;
+    left: 20px;
+    font-family: var(--font-texto);
+    top: 85px;
+    user-select: none;
+}
+.volver:hover{
+    transition: all .3s;
+    transform: scale(1.03);
+}
+/* RESPONSIVE  */
+@media (min-width:1450px){
+    .titulo{
+        font-size: 60px;
+    }
+}
+
+@media (max-width:450px){
+
+    .titulo{
+        margin-top: 80px;
+    }
+    .volver{
+        left: 35%;
+    }
+    #texto{
+        font-size: 15px;
+    }
+    .borde{
+        width: 100%;
+    }
+}
+
