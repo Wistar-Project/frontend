@@ -146,5 +146,6 @@ async function mostrarDescarga(descargas){
     const event = document.getElementById('volver').addEventListener('click', async () => {
         mostrarMapa((await obtenerDestinos()).filter(destino => !destino.entregada))
         document.getElementById('volver').href = "/"
+        document.getElementById('texto-leyenda').innerHTML = "Mapa con ruta"
     })
 }
