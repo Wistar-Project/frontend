@@ -3,13 +3,20 @@ import { getCookie } from "../utils/cookieHelper.js"
 
 const todos = document.getElementById('mostrar-todos')
 const pendientes = document.getElementById('mostrar-pendientes')
-pendientes.addEventListener('click', function(){
+pendientes.addEventListener('click', async function(){
     todos.style.display='flex'
     pendientes.style.display='none'
+    const entregas = document.getElementById('entregas')
+    entregas.innerHTML = "<legend>Entregas pendientes</legend>"
+    const destinos = await obtenerDestinos()
+    mostrarDestinos(destinos.filter(destino => !destino.entregada))
 })
-todos.addEventListener('click', function(){
+todos.addEventListener('click', async function(){
     todos.style.display='none'
     pendientes.style.display='flex'
+    const entregas = document.getElementById('entregas')
+    entregas.innerHTML = "<legend>Todas las entregas</legend>"
+    mostrarDestinos(await obtenerDestinos())
 })
 
 function destinosRestantes(){
@@ -41,9 +48,15 @@ function mostrarDestinos(destinos){
         entregas.innerHTML += `
             <div class="entrega-container">
                 <button class="boton-entregar" data-direccion-id="${destino.idDireccion}" ${destino.entregada && "style='background-image:url(/img/checkmark.png)'"}></button>
-                <button class="boton-ver-descargas">${destino.direccion}</button>
+                <button class="boton-ver-descargas" data-direccion-id="${destino.idDireccion}">${destino.direccion}</button>
             </div>
             `
+    })
+
+    document.querySelectorAll('.boton-ver-descargas').forEach(boton => {
+        boton.addEventListener('click', async () => {
+            mostrarDescarga(await obtenerDescarga(boton.dataset.direccionId))
+        })
     })
 
     document.querySelectorAll('.boton-entregar').forEach(boton => {
@@ -108,5 +121,30 @@ async function marcarComoEntregada(idDireccion){
         headers: {
             Authorization: `Bearer ${getCookie('token')}`
         }
+    })
+}
+
+async function obtenerDescarga(idDireccion){
+    console.log(idDireccion)
+    const response = await fetch(`${serverUrls.transito}/api/v1/entregas/${idDireccion}`, {
+        headers: {
+            Authorization: `Bearer ${getCookie('token')}`
+        }
+    })
+    return await response.json()
+}
+
+async function mostrarDescarga(descargas){
+    document.getElementById('texto-leyenda').innerHTML = "Lotes o paquetes a descargar"
+    document.getElementById('mapa-o-descargas-container').innerHTML = ""
+    descargas.forEach(descarga => {
+        document.getElementById('mapa-o-descargas-container').innerHTML += `
+            <p class="lote-o-paquete">${descarga}</p>
+        `
+    })
+    document.getElementById('volver').href = "#"
+    const event = document.getElementById('volver').addEventListener('click', async () => {
+        mostrarMapa((await obtenerDestinos()).filter(destino => !destino.entregada))
+        document.getElementById('volver').href = "/"
     })
 }

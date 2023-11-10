@@ -82,11 +82,9 @@ fieldset{
 #mapa-o-descargas-container{
     width: 550px;
     height: 480px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
     font-size: 40px;
     font-weight: bolder;
+    gap: 10px;
 }
 #mostrar-pendientes{
     min-width: 100px;
@@ -219,4 +217,18 @@ main{
     font-size: 40px;
     font-weight: 900;
     text-align: center;
+}
+
+.lote-o-paquete{
+    font-size: 35px;
+    border: 1px solid #000;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: #385743;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    line-height: 50px;
 }
