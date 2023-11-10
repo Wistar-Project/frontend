@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-const nav = document.querySelector('header')
-
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('activar', this.window.scrollY > 0)
-})
-
-function crearLoteYPaquete(){
-    const form=document.getElementById('container-crear');
-    form.classList.toggle('mostrar');
-    
-}
-
-function asignarLoteYPaquete(){
-    const asignar=document.getElementById('asignar');
-    asignar.classList.toggle('ver');
-}
-function cerrarVentanaAsignar(){
-    document.getElementById('asignar').classList.toggle("ver");
-=======
 import  {serverUrls}from '../../utils/consts.js'
 import { getCookie } from '../../utils/cookieHelper.js';
 
@@ -141,7 +121,6 @@ async function asignarPaquetes(response){
             })
         })
     })    
->>>>>>> 7b419941dbd8c740e2f2198c5a66697e34948fb9
 }
 
 document.querySelector('form')
@@ -151,17 +130,6 @@ document.querySelector('form')
         new FormData(e.target)
     )
     console.log(JSON.stringify(data))
-<<<<<<< HEAD
-    fetch("http://localhost:8000/api/v1/lotes", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"  
-  },
-  body: JSON.stringify(data)
-})
-})
-const lotesContainer = document.getElementById('lotes')
-=======
     fetch(`${serverUrls.almacenes}/api/v1/lotes`, {
         method: "POST",
         headers: {
@@ -202,16 +170,12 @@ const lotesContainer = document.getElementById('lotes')
 
 const lotesContainer = document.getElementById('lotes')
 const paquetesAgregar = document.getElementById('agregar-paquetes')
->>>>>>> 7b419941dbd8c740e2f2198c5a66697e34948fb9
 
 async function obtenerYMostrarLotes(){
     const lotes = await obtenerLotes()
     mostrarLotes(lotes)
 
     async function obtenerLotes(){
-<<<<<<< HEAD
-        const response = await fetch('http://localhost:8000/api/v1/lotes')
-=======
         const response = await fetch(`${serverUrls.almacenes}/api/v1/lotes` ,
         {
             headers:{
@@ -219,21 +183,11 @@ async function obtenerYMostrarLotes(){
             }
         }
         )
->>>>>>> 7b419941dbd8c740e2f2198c5a66697e34948fb9
         return await response.json()
     }
 
     function mostrarLotes(lotes){
         lotes.map(lote => {
-<<<<<<< HEAD
-            const p = document.createElement('p')
-            p.innerHtml = lote.id
-            lotesContainer.appendChild(p)
-        })
-    }
-}
-obtenerYMostrarLotes();
-=======
             const button = document.createElement('button')
             button.textContent = lote.id
             button.className = "loteBoton"
@@ -309,4 +263,3 @@ const paquetesContainer = document.getElementById('agregar-paquetes')
 
 
 
->>>>>>> 7b419941dbd8c740e2f2198c5a66697e34948fb9

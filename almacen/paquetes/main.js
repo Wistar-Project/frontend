@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-const nav = document.querySelector('header')
-
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('activar', this.window.scrollY > 0)
-})
-
-function crearLoteYPaquete(){
-    const form=document.getElementById('container-crear');
-    form.classList.toggle('mostrar');
-    
-}
-
-function asignarLoteYPaquete(){
-    const asignar=document.getElementById('asignar');
-    asignar.classList.toggle('ver');
-}
-function cerrarVentanaAsignar(){
-    document.getElementById('asignar').classList.toggle("ver");
-=======
 import { serverUrls } from '../../utils/consts.js'
 import { getCookie } from '../../utils/cookieHelper.js'
 import { formatearFecha } from '../../utils/updateText.js'
@@ -291,5 +271,4 @@ async function obtenerYMostrarLotes(){
             lotesContainer.appendChild(button)
         })
     }
->>>>>>> 7b419941dbd8c740e2f2198c5a66697e34948fb9
 }
