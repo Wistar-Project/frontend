@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoTruck - Seguimiento</title>
+    <title data-text-id="448">GoTruck - Seguimiento</title>
     <script src="../../utils/authChecker.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,41 +39,41 @@
             <div id="opciones-usuario">
                 <div id="boton-cerrar-sesion">
                     <img src="/img/cerrar-sesion.png" alt="Salir">
-                    <p>Cerrar sesión</p>
+                    <p data-text-id="100">Cerrar sesión</p>
                 </div>
             </div>  
         </div>    
     </header>
-    <h2 class="titulo">Seguimiento de lotes</h2>
-    <a href="javascript:history.back()" class="volver" id="volver"> 
+    <h2 class="titulo" data-text-id="451">Seguimiento de lotes</h2>
+    <a href="javascript:history.back()" class="volver" id="volver" data-text-id="415"> 
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
             <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
           </svg>
         Volver</a>
-        <button type="button"  id="boton-buscar">
+        <button type="button"  id="boton-buscar" data-text-id="452">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
             Buscar</button>
     <main>
         <fieldset id="informacion">
-            <legend>Información del lote</legend>
-             <p>Id del lote:</p>
-             <p>Estado:</p>
-             <p>Camión asignado:</p>
-             <p>Conductor a cargo:</p>
-             <p>Destino:</p>    
+            <legend data-text-id="453">Información del lote</legend>
+             <p data-text-id="419">ID del lote:</p>
+             <p data-text-id="454">Estado:</p>
+             <p data-text-id="455">Camión asignado:</p>
+             <p data-text-id="456">Conductor a cargo:</p>
+             <p data-text-id="425">Destino:</p>    
         </fieldset>
         <fieldset id="paquetes-asignados">
-            <legend>Paquetes asignados</legend>
+            <legend data-text-id="457">Paquetes asignados</legend>
             <div id="paquetes-asignados-container"></div>
         </fieldset>
 
         <fieldset id="container-buscar">
-            <legend>Buscar un lote</legend>
+            <legend data-text-id="458">Buscar un lote</legend>
             <form action="">
-                <label for="id">ID del lote:</label><input type="text" name="id">
-                <button type="submit" class="busqueda"> 
+                <label for="id" data-text-id="419">Id del lote:</label><input type="text" name="id">
+                <button type="submit" class="busqueda" data-text-id="453"> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                       </svg>
