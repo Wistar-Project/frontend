@@ -136,6 +136,15 @@ fieldset{
     background-color: var(--boton-secundario);
     opacity: 0.98;
 }
+
+#container-crear{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    padding-bottom: 12px;
+}
+
 .container-crear.mostrar{
     animation-name: entrada ;
     animation-duration: .2s;
